@@ -1,0 +1,126 @@
+{
+  "id": "armonia-cromatica",
+  "title": "Armonia Cromatică",
+  "description": "Învață să combini culorile perfect: complementare, analoge, triadice și monocromatice",
+  "category": "Design",
+  "difficulty": "Intermediar",
+  "timeLimit": 540,
+  "icon": "🎼",
+  "color": "from-blue-600 to-green-500",
+  "questions": [
+    {
+      "question": "Ce procent din deciziile de cumpărare sunt influențate de culoare?",
+      "answers": ["65%", "75%", "85%", "95%"],
+      "correctAnswer": 1,
+      "explanation": "85% din deciziile de cumpărare sunt influențate de culoare, demonstrând importanta crucială a armoniei cromatice în design."
+    },
+    {
+      "question": "Ce sunt culorile complementare?",
+      "answers": [
+        "Culori vecine pe roata cromatică",
+        
+        "Culori opuse pe roata cromatică",
+        "Trei culori egal distanțate",
+        "Variații ale aceleiași culori"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Culorile complementare sunt culori opuse pe roata cromatică (roșu-verde, albastru-portocaliu) și oferă contrast maxim."
+    },
+    {
+      "question": "Care este regula 60-30-10 în designul cromatic?",
+      "answers": [
+        "60% accent, 30% dominantă, 10% secundară",
+        "60% dominantă, 30% secundară, 10% accent",
+        "60% secundară, 30% accent, 10% dominantă",
+        "60% contrast, 30% harmonie, 10% echilibru"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Regula 60-30-10 înseamnă 60% culoare dominantă, 30% culoare secundară și 10% culoare de accent pentru echilibru perfect."
+    },
+    {
+      "question": "Ce caracterizează culorile analoge?",
+      "answers": [
+        "Sunt opuse pe roata cromatică",
+        "Sunt vecine pe roata cromatică",
+        "Sunt la 120° distanță",
+        "Sunt variații ale aceleiași culori"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Culorile analoge sunt culori vecine pe roata cromatică și creează armonii naturale și relaxante."
+    },
+    {
+      "question": "Câte culori sunt folosite într-o schemă triadică?",
+      "answers": ["1", "2", "4", "5"],
+      "correctAnswer": 1,
+      "explanation": "Schema triadică folosește 3 culori egal distanțate la 120° pe roata cromatică, oferind echilibru perfect."
+    },
+    {
+      "question": "Care dintre aceste combinații reprezintă culori complementare?",
+      "answers": [
+        "Roșu și Portocaliu",
+        "Galben și Violet",
+        "Verde și Albastru",
+           "Albastru și Verde"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Galben și Violet sunt culori complementare, fiind opuse pe roata cromatică și oferind contrast maxim."
+    },
+    {
+      "question": "Ce efect au culorile monocromatice într-un design?",
+      "answers": [
+        "Vibrant și energic",
+        "Dinamic și echilibrat",
+        "Elegant și coerent",
+        "Contrastant și dramatic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Culorile monocromatice (variații ale aceleiași culori) creează un efect elegant, coerent și profesional."
+    },
+    {
+      "question": "De ce folosesc brandurile de fast-food culorile roșu și galben?",
+      "answers": [
+
+        "Pentru stimularea apetitului și urgență",
+        "Pentru a atrage copiii",
+        "Pentru a părea mai scumpe",
+        "Pentru a fi mai vizibile noaptea"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Roșu și galben stimulează apetitul și creează o senzație de urgență, fiind perfecte pentru fast-food."
+    },
+    {
+      "question": "Ce culoare este utilizată frecvent în branding-ul tech și financiar?",
+      "answers": ["Roșu", "Verde", "Albastru", "Galben"],
+      "correctAnswer": 1,
+      "explanation": "Albastru este preferat în tech și finance pentru că inspiră încredere, stabilitate și profesionalism."
+    },
+    {
+      "question": "Care este principalul avantaj al culorilor complementare în design?",
+      "answers": [
+        "Sunt ușor de combinat",
+        "Oferă contrast maxim și puncte focale",
+        "Sunt relaxante pentru ochi",
+        "Sunt întotdeauna la modă"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Culorile complementare oferă contrast maxim și sunt perfecte pentru a crea puncte focale dramatice în design."
+    },
+    {
+      "question": "Ce înseamnă 'regula temperaturii' în armonia cromatică?",
+      "answers": [
+        "Folosirea doar culorilor calde",
+        "Folosirea doar culorilor reci",
+        "Combinarea culorilor calde cu cele reci",
+        "Evitarea culorilor foarte saturate"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Regula temperaturii înseamnă combinarea culorilor calde cu cele reci pentru a crea echilibru și contrast plăcut."
+    },
+    {
+      "question": "Cu cât crește recunoașterea brandului prin folosirea corectă a culorilor?",
+      "answers": ["100%", "200%", "300%",  "150%"],
+      "correctAnswer": 3,
+      "explanation": "Folosirea corectă a culorilor poate crește recunoașterea brandului cu până la 200%, demonstrând puterea armoniei cromatice."
+    }
+  ]
+}

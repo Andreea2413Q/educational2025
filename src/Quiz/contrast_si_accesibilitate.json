@@ -1,0 +1,160 @@
+{
+  "id": "accesibilitate-cromatica",
+  "title": "Accesibilitatea Cromatică",
+  "description": "Quiz avansat despre designul incluziv, contrast, daltonism și standardele WCAG pentru experiențe accesibile tuturor utilizatorilor",
+  "category": "Design",
+  "difficulty": "Avansat",
+  "timeLimit": 900,
+  "icon": "♿",
+  "color": "from-blue-600 to-green-500",
+  "questions": [
+    {
+      "question": "Ce procent din bărbați suferă de daltonism?",
+      "answers": ["4%", "6%", "8%", "10%"],
+      "correctAnswer": 3,
+      "explanation": "Aproximativ 8% din bărbați au daltonism, în timp ce doar 0.5% din femei sunt afectate de această condiție."
+    },
+    {
+      "question": "Ce înseamnă WCAG?",
+      "answers": [
+        "Web Color Accessibility Guidelines",
+        "Web Content Accessibility Guidelines",
+        "World Compliance Accessibility Group",
+        "Web Contrast Assessment Guide"
+      ],
+      "correctAnswer": 3,
+      "explanation": "WCAG înseamnă Web Content Accessibility Guidelines - standardul internațional pentru accesibilitatea conținutului web."
+    },
+    {
+      "question": "Care este raportul de contrast minim pentru textul normal conform WCAG AA?",
+      "answers": ["3:1", "4.5:1", "7:1", "21:1"],
+      "correctAnswer": 2,
+      "explanation": "WCAG AA necesită un raport de contrast de minim 4.5:1 pentru textul normal și 3:1 pentru textul mare."
+    },
+    {
+      "question": "Ce raport de contrast oferă textul negru pe fundal alb?",
+      "answers": ["15:1", "18:1", "21:1", "25:1"],
+      "correctAnswer": 2,
+      "explanation": "Textul negru pe fundal alb oferă raportul de contrast maxim posibil: 21:1."
+    },
+    {
+      "question": "Ce tip de daltonism este cel mai comun?",
+      "answers": ["Protanopia", "Deuteranopia", "Tritanopia", "Acromatopsia"],
+      "correctAnswer": 1,
+      "explanation": "Deuteranopia (deficiența de verde) este cea mai comună formă de daltonism, afectând aproximativ 5% din bărbați."
+    },
+    {
+      "question": "Ce combinație de culori trebuie evitată în special pentru daltoniști?",
+      "answers": ["Albastru-galben", "Roșu-verde", "Violet-portocaliu", "Negru-alb"],
+      "correctAnswer": 1,
+      "explanation": "Combinația roșu-verde este cea mai problematică pentru daltoniști, fiind greu de diferențiat pentru majoritatea tipurilor de daltonism."
+    },
+    {
+      "question": "Ce înseamnă standardul WCAG AAA pentru contrast?",
+      "answers": ["Minim 3:1", "Minim 4.5:1", "Minim 7:1", "Minim 10:1"],
+      "correctAnswer": 2,
+      "explanation": "WCAG AAA necesită un raport de contrast de minim 7:1 pentru text normal, oferind cea mai înaltă accesibilitate."
+    },
+    {
+      "question": "Câte persoane la nivel global au deficiențe de vedere?",
+      "answers": ["200 milioane", "300 milioane", "400 milioane", "500 milioane"],
+      "correctAnswer": 1,
+      "explanation": "La nivel global, aproximativ 300 de milioane de persoane au deficiențe de vedere de diferite grade."
+    },
+    {
+      "question": "Ce tehnică NU este recomandată pentru îmbunătățirea accesibilității?",
+      "answers": [
+        "Utilizarea icoanelor alături de culori",
+        "Adăugarea de texturi și modele",
+        "Reducerea contrastului pentru estetic",
+        "Folosirea etichetelor text"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Reducerea contrastului pentru aspectul estetic compromite accesibilitatea și nu este niciodată recomandată."
+    },
+    {
+      "question": "Ce fel de informație nu trebuie transmisă DOAR prin culoare?",
+      "answers": [
+        "Aspectul decorativ",
+        "Informațiile critice și acțiunile",
+        "Preferințele personale",
+        "Toate răspunsurile de mai sus"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Informațiile critice și acțiunile nu trebuie transmise doar prin culoare - trebuie să aibă și alte indicii vizuale."
+    },
+    {
+      "question": "Ce raport de contrast este necesar pentru elementele UI interactive?",
+      "answers": ["2:1", "3:1", "4.5:1", "7:1"],
+      "correctAnswer": 1,
+      "explanation": "Elementele UI interactive (butoane, controale) necesită minim 3:1 contrast față de fundalul adiacent."
+    },
+    {
+      "question": "Ce înseamnă 'triple redundancy' în designul accesibil?",
+      "answers": [
+        "Trei versiuni ale aceluiași element",
+        "Trei tipuri de teste pentru contrast",
+        "Culoare + formă + text pentru aceeași informație",
+        "Trei niveluri de contrast diferite"
+      ],
+      "correctAnswer": 2,
+      "explanation": "'Triple redundancy' înseamnă transmiterea aceleiași informații prin culoare, formă și text pentru accesibilitate maximă."
+    },
+    {
+      "question": "Care este cea mai bună combinație de culori pentru contrast maxim?",
+      "answers": ["Roșu și verde", "Albastru și portocaliu", "Negru și alb", "Violet și galben"],
+      "correctAnswer": 2,
+      "explanation": "Negrul și albul oferă contrastul maxim (21:1) și sunt accesibile pentru toate tipurile de deficiențe vizuale."
+    },
+    {
+      "question": "Ce se întâmplă cu contrastul când vezi pe un ecran în lumina soarelui?",
+      "answers": [
+        "Rămâne același",
+        "Se îmbunătățește automat",
+        "Scade semnificativ",
+        "Se inversează"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Lumina puternică a soarelui reduce semnificativ contrastul perceput, de aceea designul trebuie testat în condiții diferite."
+    },
+    {
+      "question": "Ce procent din femei suferă de daltonism?",
+      "answers": ["0.5%", "2%", "4%", "8%"],
+      "correctAnswer": 0,
+      "explanation": "Doar 0.5% din femei suferă de daltonism, mult mai puțin decât bărbații (8%) din cauza diferențelor genetice."
+    },
+    {
+      "question": "Care este cea mai eficientă modalitate de a testa accesibilitatea culorilor?",
+      "answers": [
+        "Să întrebi pe cineva cu daltonism",
+        "Să folosești simulatoare digitale de daltonism",
+        "Să imprimi designul în alb-negru",
+        "Toate metodele de mai sus"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Cea mai eficientă abordare combină toate metodele: simulatoare digitale, teste cu utilizatori reali și verificări în grayscale."
+    },
+    {
+      "question": "În ce situație este acceptabil un contrast de doar 2.8:1?",
+      "answers": [
+        "Pentru text decorativ fără funcționalitate",
+        "Pentru textul principal al unei aplicații",
+        "Pentru butoanele importante",
+        "Nu este niciodată acceptabil"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Un contrast de 2.8:1 este sub standardele WCAG chiar și pentru text mare, fiind inacceptabil pentru orice conținut important."
+    },
+    {
+      "question": "Ce beneficiu secundar oferă designul accesibil?",
+      "answers": [
+        "Devine mai ieftin de implementat",
+        "Este mai ușor de folosit pentru toți utilizatorii",
+        "Necesită mai puține culori",
+        "Devine automat responsive"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Designul accesibil nu doar că ajută persoanele cu dizabilități, dar devine mai clar, mai ușor de folosit și mai profesional pentru toți utilizatorii."
+    }
+  ]
+}

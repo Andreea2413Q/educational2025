@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Fleur de Leah';
+  src: url('./FleurDeLeah-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.titlu-fleur {
+  font-family: 'Fleur de Leah', cursive, serif;
+  font-size: 3rem; 
+  letter-spacing: 7px;
+}
+
+span{
+  @apply text-b4
+}
+

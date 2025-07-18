@@ -1,0 +1,82 @@
+ .game-container {
+                    @apply min-h-screen bg-b2 font-sans m-0;
+                }
+                
+                .game-overlay {
+                    @apply fixed inset-0 bg-b1 flex flex-col items-center justify-center text-center z-50;
+                }
+                
+                .final-score {
+                    @apply block w-2/5 rounded-lg mx-auto my-4 p-4 border-4 border-white text-4xl;
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                }
+                
+                .final-score-current {
+                    @apply text-pink-300 mt-20 mb-12;
+                }
+                
+                .final-score-best {
+                    @apply text-cyan-400;
+                }
+                
+                .play-again-btn {
+                    @apply text-4xl text-center bg-b1 border-black w-2/5 h-16 mt-8 rounded-lg text-black cursor-pointer;
+                    transition: all 0.3s;
+                }
+                
+                .play-again-btn:hover {
+                    @apply bg-gray-100;
+                }
+                
+                .difficulty-container {
+                    @apply w-full flex lg:block;
+                }
+                
+                .difficulty-buttons {
+                    @apply w-3/5 flex justify-between;
+                }
+                
+                .difficulty-btn {
+                    @apply bg-d1 m-4 text-b1 py-2 font-bold rounded-lg text-xl  text-center border-none cursor-pointer w-full flex items-center justify-center flex-grow transition-all duration-300 ease-in-out;
+                }
+                
+                .difficulty-btn.selected {
+                    @apply bg-black bg-opacity-70 text-b4 font-semibold;
+                    letter-spacing: 3px;
+                    text-shadow: -1px -1px 0px black, 1px -1px 0px black, -1px 1px 0px black, 1px 1px 0px pink;
+                }
+                
+                .info-list {
+                    @apply w-4/5 mx-auto flex justify-center items-center;
+                    font-size: clamp(1rem, 2rem, 2.5rem);
+                }
+                
+                .info-item {
+                    @apply text-center rounded-lg w-1/3  py-2 text-d3 font-semibold bg-b1  m-4;
+                    font-size: clamp(1rem, 2rem, 2.5rem);
+                    letter-spacing: 3px;
+                    text-shadow: -1px -1px 0px black, 1px -1px 0px pink, -1px 1px 0px black, 1px 1px 0px pink;
+                }
+                
+                .color-display {
+                    @apply block text-center text-4xl font-bold text-b4;
+                    font-family: 'Times New Roman';
+                }
+                
+                .squares-container {
+                    @apply flex justify-center items-center w-3/4 mx-auto h-96 p-2 bg-b2 mt-4;
+                }
+                
+                .square {
+                    @apply border-none cursor-pointer mx-2 w-full h-96 bg-white transition-all duration-500 ease-in-out;
+                }
+                
+.help-btn {
+    @apply bg-d3 text-white font-bold rounded-lg text-xl text-center border-none cursor-pointer transition-all duration-300 ease-in-out;
+    
+}
+
+.help-btn:hover {
+    @apply bg-d4;
+    transform: scale(1.1);
+}

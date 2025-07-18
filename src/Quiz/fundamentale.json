@@ -1,0 +1,110 @@
+{
+  "id": "fundamentale",
+  "title": "Fundamentele Culorilor",
+  "description": "Descoperă bazele teoriei culorilor și înțelege cum se construiește întreaga paletă cromatică",
+  "category": "Design",
+  "difficulty": "Ușor",
+  "timeLimit": 600,
+  "icon": "🎨",
+  "color": "from-purple-500 to-pink-500",
+  "questions": [
+    {
+      "question": "Câte culori primare există în teoria culorilor?",
+      "answers": ["2", "3", "4", "5"],
+      "correctAnswer": 1,
+      "explanation": "Există 3 culori primare: roșu, albastru și galben."
+    },
+    {
+      "question": "Care sunt cele 3 culori primare?",
+      "answers": [
+        "Roșu, Verde, Albastru",
+        "Roșu, Albastru, Galben", 
+        "Verde, Portocaliu, Violet",
+        "Albastru, Galben, Verde"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Culorile primare sunt Roșu, Albastru și Galben - acestea nu pot fi create prin amestecarea altor culori."
+    },
+    {
+      "question": "Cum se formează culorile secundare?",
+      "answers": [
+        "Prin amestecarea a trei culori primare",
+        "Prin amestecarea în proporții egale a două culori primare",
+        "Prin adăugarea de alb la culorile primare",
+        "Prin adăugarea de negru la culorile primare"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Culorile secundare rezultă din amestecarea în proporții egale a două culori primare."
+    },
+    {
+      "question": "Te culoare secundară rezultă din amestecul roșu + galben?",
+      "answers": ["Verde", "Portocaliu", "Violet", "Maro"],
+      "correctAnswer": 1,
+      "explanation": "Roșu + Galben = Portocaliu, culoarea energiei și entuziasmului."
+    },
+    {
+      "question": "Ce culoare secundară rezultă din amestecul albastru + galben?",
+      "answers": ["Verde", "Portocaliu", "Violet", "Turcoaz"],
+      "correctAnswer": 0,
+      "explanation": "Albastru + Galben = Verde, culoarea echilibrului și naturii."
+    },
+    {
+      "question": "Cum se formează culorile terțiare?",
+      "answers": [
+        "Prin amestecarea a trei culori primare",
+        "Prin amestecarea unei culori primare cu o culoare secundară adiacentă",
+        "Prin adăugarea de gri la culorile secundare",
+        "Prin amestecarea a două culori secundare"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Culorile terțiare se formează prin amestecarea unei culori primare cu o culoare secundară adiacentă."
+    },
+    {
+      "question": "Câte culori terțiare există?",
+      "answers": ["4", "5", "6", "8"],
+      "correctAnswer": 2,
+      "explanation": "Există 6 culori terțiare care completează cercul cromatic cu nuanțe suplimentare."
+    },
+    {
+      "question": "Câte culori în total conține cercul cromatic de bază?",
+      "answers": ["9", "10", "12", "15"],
+      "correctAnswer": 2,
+      "explanation": "Cercul cromatic conține 12 culori: 3 primare + 3 secundare + 6 terțiare."
+    },
+    {
+      "question": "La ce distanță sunt poziționate culorile primare pe cercul cromatic?",
+      "answers": ["90°", "120°", "180°", "240°"],
+      "correctAnswer": 1,
+      "explanation": "Culorile primare sunt poziționate la 120° una de alta, formând un triunghi echilateral."
+    },
+    {
+      "question": "Ce proprietate definește culoarea pură, pozițiunea pe cercul cromatic?",
+      "answers": ["Saturația", "Luminozitatea", "Nuanța (Hue)", "Contrastul"],
+      "correctAnswer": 2,
+      "explanation": "Nuanța (Hue) este culoarea pură, pozițiunea pe cercul cromatic - ceea ce numim de obicei 'culoarea'."
+    },
+    {
+      "question": "Ce măsoară saturația unei culori?",
+      "answers": [
+        "Cât de luminoasă este",
+        "Pozițiunea pe cercul cromatic", 
+        "Intensitatea sau puritatea culorii",
+        "Cantitatea de negru adăugată"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Saturația măsoară intensitatea sau puritatea culorii - cât de vibrantă sau palidă este."
+    },
+    {
+      "question": "Ce se întâmplă când saturația unei culori este 0%?",
+      "answers": [
+        "Culoarea devine neagră",
+      
+        "Culoarea devine gri",
+        "Culoarea dispare complet",
+          "Culoarea devine albă"
+      ],
+      "correctAnswer": 4,
+      "explanation": "Când saturația este 0%, culoarea devine gri. La 100% saturație, avem culoarea pură."
+    }
+  ]
+}

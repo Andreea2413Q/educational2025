@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* tema Original */
+  --color-b1: 46 80 119; /*- dark blue */
+  --color-b2: 77 161 169; /* teal */
+  --color-b3: 121 215 190; /* mint green */
+  --color-b4: 246 244 240; /* off-white */
+  --color-b5: 233 234 119; /*- lime */
+  --color-d1: 255 233 154; /* galben deschis */
+  --color-d2: 255 213 134; /* galben auriu */
+  --color-d3: 255 170 170; /* roz pal */
+  --color-d4: 255 152 152; /* roz intens */
+
+
+
+--color-z-4: 255 235 59;  /* mov lavandă */ 
+--color-z-2: 255 193 7;   /* galben auriu intens */
+--color-z-3: 30 136 229;  /* albastru ocean */
+--color-z-1: 156 39 176;   /* galben deschis luminos */
+}
+
+/* Tema Luminoasă */
+[data-theme="luminos"] {
+  --color-b1: 255 193 7; /* galben auriu */
+  --color-b2: 255 152 0; /* portocaliu */
+  --color-b3: 255 235 59; /* galben electric */
+  --color-b4: 255 253 236; /* alb-galben */
+  --color-b5: 255 241 118; /* galben lime */
+  --color-d1: 255 248 225; /* galben foarte pal */
+  --color-d2: 255 224 178; /* bej auriu */
+  --color-d3: 255 204 188; /* piersică pal */
+  --color-d4: 255 183 77; /* galben portocaliu */
+}
+
+/* Tema Întunecată */
+[data-theme="intunecat"] {
+  --color-b1: 30 41 59; /* gri albastru foarte închis */
+  --color-b2: 240 240 240; /* gri catre alb */
+  --color-b3: 71 85 105; /* gri albastru mediu */
+  --color-b4: 255 255 255; /* aproape negru cu nuanță albastră */
+  --color-b5: 168 85 247; /* violet electric */ 
+  --color-d1: 45 55 72; /* gri mediu pentru carduri */
+  --color-d2: 55 65 81; /* gri mai deschis */
+  --color-d3: 107 114 128; /* gri pentru accente */
+  --color-d4: 17 24 39; /* gri foarte închis pentru fundal */
+}
+
+
+
+@font-face {
+  font-family: 'Tomorrow-Black';
+  src: url('./Font/Tomorrow-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Fleur de Leah';
+  src: url('./Header/FleurDeLeah-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  h1 {
+  @apply text-lg sm:text-xl md:text-xl lg:text-2xl font-extralight leading-tight stardos-stencil-regular;
+  letter-spacing: 1px;
+   font-family: "Stardos Stencil", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+ 
+  p {
+    @apply text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed;
+  }
+}
+
+li{
+  @apply text-xl
+}
+
+
+.stardos-stencil-regular {
+  font-family: "Stardos Stencil", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.stardos-stencil-bold {
+  font-family: "Stardos Stencil", system-ui;
+  font-weight: 700;
+  font-style: normal;
+}
