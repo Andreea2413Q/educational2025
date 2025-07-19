@@ -8,4 +8,8 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
+<<<<<<< HEAD
   status = 200
+=======
+  status = 200
+>>>>>>> e89316df (netlify)
