@@ -71,7 +71,7 @@ const SymbolsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-      {/* Header */}
+    
       <div className="pt-20 pb-16 px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-8">
@@ -79,7 +79,7 @@ const SymbolsPage = () => {
               onClick={() => navigate('/teorie')}
               className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-lg"
             >
-              ← Înapoi la Teorie
+               Înapoi la Teorie
             </button>
             
             <div className="text-center">
@@ -91,10 +91,10 @@ const SymbolsPage = () => {
               </p>
             </div>
             
-            <div className="w-32"></div> {/* Spacer for centering */}
+            <div className="w-32"></div>
           </div>
 
-          {/* Search and Stats */}
+      
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8">
             <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
               <div className="flex-1 max-w-md">
@@ -127,7 +127,7 @@ const SymbolsPage = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-8 pb-20">
-        {/* Categories Filter */}
+     
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-white mb-4">Categorii de Culori</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -149,7 +149,6 @@ const SymbolsPage = () => {
           </div>
         </div>
 
-        {/* Symbols Grid */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-white">
@@ -222,7 +221,7 @@ const SymbolsPage = () => {
           )}
         </div>
 
-        {/* Simbolistică în Profunzime */}
+     
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-white mb-8">🔮 Înțelegerea Profundă a Simbolismului Cromatic</h2>
           

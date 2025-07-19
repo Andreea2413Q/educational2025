@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* tema Original */
+ 
   --color-b1: 46 80 119; /*- dark blue */
   --color-b2: 77 161 169; /* teal */
   --color-b3: 121 215 190; /* mint green */
@@ -22,31 +22,6 @@
 --color-z-1: 156 39 176;   /* galben deschis luminos */
 }
 
-/* Tema Luminoasă */
-[data-theme="luminos"] {
-  --color-b1: 255 193 7; /* galben auriu */
-  --color-b2: 255 152 0; /* portocaliu */
-  --color-b3: 255 235 59; /* galben electric */
-  --color-b4: 255 253 236; /* alb-galben */
-  --color-b5: 255 241 118; /* galben lime */
-  --color-d1: 255 248 225; /* galben foarte pal */
-  --color-d2: 255 224 178; /* bej auriu */
-  --color-d3: 255 204 188; /* piersică pal */
-  --color-d4: 255 183 77; /* galben portocaliu */
-}
-
-/* Tema Întunecată */
-[data-theme="intunecat"] {
-  --color-b1: 30 41 59; /* gri albastru foarte închis */
-  --color-b2: 240 240 240; /* gri catre alb */
-  --color-b3: 71 85 105; /* gri albastru mediu */
-  --color-b4: 255 255 255; /* aproape negru cu nuanță albastră */
-  --color-b5: 168 85 247; /* violet electric */ 
-  --color-d1: 45 55 72; /* gri mediu pentru carduri */
-  --color-d2: 55 65 81; /* gri mai deschis */
-  --color-d3: 107 114 128; /* gri pentru accente */
-  --color-d4: 17 24 39; /* gri foarte închis pentru fundal */
-}
 
 
 

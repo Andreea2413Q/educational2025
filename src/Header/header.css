@@ -7,8 +7,9 @@
 
 .titlu-fleur {
   font-family: 'Fleur de Leah', cursive, serif;
-  font-size: 3rem; 
-  letter-spacing: 7px;
+  font-size: 26px; 
+  font-weight: 500;
+  letter-spacing: 5px;
 }
 
 span{

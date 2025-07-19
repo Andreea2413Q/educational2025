@@ -28,7 +28,7 @@ const useWindowDimensions = () => {
 const Cont = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [showControls, setShowControls] = useState(false);
+
   const [animationParams, setAnimationParams] = useState({
     maxDistFromCursor: 50,
     dotsSpeed: 30,
@@ -173,7 +173,7 @@ const Cont = () => {
                     </div>
                   </div>
                   
-                  {/* Butonul de deconectare cu z-index și pointer-events explicit */}
+                 
                   <button
                     onClick={handleSignOut}
                     disabled={loading}

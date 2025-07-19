@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Folosim variabile CSS pentru culori dinamice
+        
         'primary': 'rgb(var(--color-primary) / <alpha-value>)',
         'secondary': 'rgb(var(--color-secondary) / <alpha-value>)',
         'accent': 'rgb(var(--color-accent) / <alpha-value>)',
@@ -13,7 +13,7 @@ module.exports = {
         'text-secondary': 'rgb(var(--color-text-secondary) / <alpha-value>)',
         'border': 'rgb(var(--color-border) / <alpha-value>)',
         
-        // Clasele tale existente care se schimbă cu tema
+        
         b1: 'rgb(var(--color-b1) / <alpha-value>)',
         b2: 'rgb(var(--color-b2) / <alpha-value>)',
         b3: 'rgb(var(--color-b3) / <alpha-value>)',

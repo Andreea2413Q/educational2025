@@ -250,66 +250,9 @@ const StarDotsAnimation = () => {
         className="absolute inset-0 cursor-none"
       />
       
-      {/* Control Panel */}
-      <div className="absolute top-4 right-4 bg-gray-800 bg-opacity-80 p-4 rounded-lg text-white z-10">
-        <h3 className="text-lg font-bold mb-4">Controls</h3>
-        
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">
-              Size: {params.maxDistFromCursor}
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              step="10"
-              value={params.maxDistFromCursor}
-              onChange={(e) => setParams(prev => ({
-                ...prev,
-                maxDistFromCursor: parseInt(e.target.value)
-              }))}
-              className="w-full"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium mb-1">
-              Speed: {params.dotsSpeed}
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              step="0.5"
-              value={params.dotsSpeed}
-              onChange={(e) => setParams(prev => ({
-                ...prev,
-                dotsSpeed: parseFloat(e.target.value)
-              }))}
-              className="w-full"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium mb-1">
-              Sky speed: {params.backgroundSpeed}
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="150"
-              step="1"
-              value={params.backgroundSpeed}
-              onChange={(e) => setParams(prev => ({
-                ...prev,
-                backgroundSpeed: parseInt(e.target.value)
-              }))}
-              className="w-full"
-            />
-          </div>
-        </div>
-      </div>
+     
+       
+      
     </div>
   );
 };

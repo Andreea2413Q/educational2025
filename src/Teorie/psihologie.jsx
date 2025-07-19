@@ -265,45 +265,12 @@ const PsychologyPage = () => {
     }
   ];
 
-  const navigationItems = [
-    { id: 'intro', title: 'Introducere', icon: '🧠' },
-    { id: 'funfacts', title: 'Fun Facts', icon: '🤯' },
-    { id: 'emotions', title: 'Impact Emoțional', icon: '❤️' },
-    { id: 'behavior', title: 'Comportament', icon: '🎭' },
-    { id: 'personality', title: 'Test Personalitate', icon: '🔮' },
-    { id: 'synesthesia', title: 'Sinestesia', icon: '🌈' },
-    { id: 'culture', title: 'Influența Culturală', icon: '🌍' },
-    { id: 'marketing', title: 'Marketing & Brand', icon: '📈' },
-    { id: 'therapy', title: 'Terapie Cromatică', icon: '💊' },
-    { id: 'experiments', title: 'Experimente', icon: '🧪' }
-  ];
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
 
-       <nav className="fixed top-20 left-8 z-40 hidden lg:block w-[15%]">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/20">
-          <h3 className="text-white font-semibold mb-4 text-center">Navigare</h3>
-          <div className="space-y-2">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
-                  activeSection === item.id
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                <span>{item.icon}</span>
-                <span className="text-sm">{item.title}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
 
-          <div className="w-[100%] lg:w-[80%] lg:ml-[18%] px-4">
+          <div className="w-[100%]  px-4">
       <div className="pt-20 pb-16 px-8 ">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-8">
@@ -311,15 +278,9 @@ const PsychologyPage = () => {
               onClick={() => navigate('/teorie')}
               className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
             >
-              ← Înapoi la Teorie
+               Înapoi la Teorie
             </button>
-            <button 
-              onClick={() => setShowHelp(true)}
-              className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
-              title="Ghid de navigare"
-            >
-              ?
-            </button>
+            
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
@@ -401,7 +362,6 @@ const PsychologyPage = () => {
           </div>
         </section>
 
-        {/* Fun Facts Section - NEW */}
         <section id="funfacts" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">🤯 Fun Facts despre Culori</h2>
@@ -494,7 +454,7 @@ const PsychologyPage = () => {
                     <p className="text-white/80 text-sm">{color.psychEffect}</p>
                   </div>
 
-                  {/* New scientific data */}
+              
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     <div className="bg-white/10 rounded p-2">
                       <span className="text-white/60">Frecvență:</span>
@@ -521,19 +481,19 @@ const PsychologyPage = () => {
               <div>
                 <h4 className="text-xl font-semibold text-white mb-2">Răspunsuri Fiziologice:</h4>
                 <ul className="text-white/80 space-y-1 text-base">
-                  <li>• Frecvența cardiacă</li>
-                  <li>• Tensiunea arterială</li>
-                  <li>• Temperatura corpului</li>
-                  <li>• Nivelul hormonilor de stress</li>
+                  <li> Frecvența cardiacă</li>
+                  <li> Tensiunea arterială</li>
+                  <li> Temperatura corpului</li>
+                  <li> Nivelul hormonilor de stress</li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-white mb-2">Răspunsuri Psihologice:</h4>
                 <ul className="text-white/80 space-y-1 text-base">
-                  <li>• Starea de spirit</li>
-                  <li>• Nivelul de concentrare</li>
-                  <li>• Apetitul</li>
-                  <li>• Percepția timpului</li>
+                  <li> Starea de spirit</li>
+                  <li> Nivelul de concentrare</li>
+                  <li>Apetitul</li>
+                  <li>Percepția timpului</li>
                 </ul>
               </div>
             </div>
@@ -616,7 +576,7 @@ const PsychologyPage = () => {
           </div>
         </section>
 
-        {/* Personality Test Section - NEW */}
+   
         <section id="personality" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">🔮 Testul de Personalitate Cromatică</h2>
@@ -684,7 +644,7 @@ const PsychologyPage = () => {
           </div>
         </section>
 
-        {/* Synesthesia Section - NEW */}
+   
         <section id="synesthesia" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">🌈 Sinestesia și Culorile</h2>
@@ -762,7 +722,7 @@ const PsychologyPage = () => {
           </div>
         </section>
 
-        {/* Influența Culturală */}
+    
         <section id="culture" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">🌍 Influența Culturală asupra Percepției</h2>
@@ -816,7 +776,6 @@ const PsychologyPage = () => {
           </div>
         </section>
 
-        {/* Marketing & Brand */}
         <section id="marketing" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">📈 Psihologia Culorilor în Marketing</h2>
@@ -900,7 +859,6 @@ const PsychologyPage = () => {
           </div>
         </section>
 
-        {/* Terapie Cromatică */}
         <section id="therapy" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">💊 Terapia prin Culori</h2>
@@ -1014,7 +972,7 @@ const PsychologyPage = () => {
           </div>
         </section>
 
-        {/* Interactive Experiments Section - NEW */}
+    
         <section id="experiments" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">🧪 Experimente Interactive</h2>
@@ -1023,7 +981,7 @@ const PsychologyPage = () => {
             </p>
           </div>
 
-          {/* Mood Calculator */}
+       
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-8">
             <h3 className="text-2xl font-semibold text-white mb-6 text-center">📊 Calculatorul de Mood</h3>
             <p className="text-white/80 text-center mb-6">
@@ -1070,7 +1028,7 @@ const PsychologyPage = () => {
             )}
           </div>
 
-          {/* Color Memory Game */}
+        
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-8">
             <h3 className="text-2xl font-semibold text-white mb-6 text-center">🎯 Testul de Memorie Cromatică</h3>
             <p className="text-white/80 text-center mb-6">
@@ -1094,7 +1052,6 @@ const PsychologyPage = () => {
             </div>
           </div>
 
-          {/* Color Temperature Experiment */}
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
             <h3 className="text-2xl font-semibold text-white mb-6 text-center">🌡️ Experimentul Temperaturii</h3>
             <p className="text-white/80 text-center mb-6">
@@ -1133,7 +1090,6 @@ const PsychologyPage = () => {
           </div>
         </section>
 
-        {/* Concluzie și Navigare */}
         <section className="text-center">
           <div className="bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-indigo-500/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
             <h3 className="text-2xl font-bold text-white mb-4">🎯 Recapitulare</h3>
@@ -1162,73 +1118,7 @@ const PsychologyPage = () => {
         </section>
       </div>
 
-      {/* Modal Help */}
-      {showHelp && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-800">🧠 Ghid Psihologia Culorilor</h2>
-              <button 
-                onClick={() => setShowHelp(false)}
-                className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
-              >
-                ×
-              </button>
-            </div>
-
-            <div className="p-6 space-y-6">
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">🧭 Cum să Navighezi</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• <strong>Meniu lateral</strong>: Click pe orice secțiune pentru navigare rapidă</li>
-                  <li>• <strong>Experimente interactive</strong>: Participă la teste și experimente</li>
-                  <li>• <strong>Demonstrații hover</strong>: Treci cu mouse-ul peste culorile din exemple</li>
-                  <li>• <strong>Testul de personalitate</strong>: Descoperă-ți tipul de personalitate</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">📚 Structura Lecției</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• <strong>Fun Facts</strong>: Curiozități uimitoare despre culori</li>
-                  <li>• <strong>Impact Emoțional</strong>: Cum culorile influențează sentimentele</li>
-                  <li>• <strong>Test Personalitate</strong>: Descoperă-ți personalitatea prin culori</li>
-                  <li>• <strong>Sinestesia</strong>: Cum unii oameni "văd" sunetele</li>
-                  <li>• <strong>Experimente</strong>: Testează efectele culorilor asupra ta</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">💡 Funcții Interactive</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• <strong>Calculatorul de Mood</strong>: Descoperă-ți starea de spirit</li>
-                  <li>• <strong>Test de memorie</strong>: Antrenează memoria cromatică</li>
-                  <li>• <strong>Experimentul temperaturii</strong>: Simte căldura culorilor</li>
-                  <li>• <strong>Simulare sinestezică</strong>: Imaginează-ți cum "arată" muzica</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">🎯 După Această Lecție</h3>
-                <p className="text-gray-600">
-                  Vei înțelege profund de ce anumite culori te fac să te simți într-un anumit fel, 
-                  vei putea să îți identifici personalitatea prin culori și să folosești aceste 
-                  cunoștințe în viața de zi cu zi pentru a-ți îmbunătăți starea de spirit și eficiența.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-6 border-t border-gray-200 text-center">
-              <button 
-                onClick={() => setShowHelp(false)}
-                className="bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
-              >
-                Să explorez psihologia! 🧠
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+     
     </div>
     </div>
   );

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { useAuth } from '../Cont/authContext';
-import './rgb.css'
 
 function RGBColorGame() {
     const { currentUser } = useAuth();
@@ -15,8 +14,6 @@ function RGBColorGame() {
     const [bestScore, setBestScore] = useState(0);
     const [difficulty, setDifficulty] = useState(4);
     const [colorFormat, setColorFormat] = useState('RGB');
-    const [showHelp, setShowHelp] = useState(false);
-
 
     useEffect(() => {
         loadBestScore();                                  
@@ -27,7 +24,6 @@ function RGBColorGame() {
         resetGame();
     }, [numSquares, colorFormat]);
 
-    
     const loadBestScore = async () => {
         try {
             if (currentUser) {
@@ -78,13 +74,11 @@ function RGBColorGame() {
         return { r, g, b };
     };
 
-    
     const rgbToHex = ({ r, g, b }) => {
         const toHex = (c) => c.toString(16).padStart(2, '0');
         return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
     };
 
-  
     const rgbToHsl = ({ r, g, b }) => {
         const rNorm = r / 255;
         const gNorm = g / 255;
@@ -115,7 +109,6 @@ function RGBColorGame() {
         };
     };
 
-   
     const formatColor = (colorObj) => {
         switch (colorFormat) {
             case 'HEX':
@@ -128,7 +121,6 @@ function RGBColorGame() {
         }
     };
 
-   
     const colorToCss = (colorObj) => {
         return `rgb(${colorObj.r}, ${colorObj.g}, ${colorObj.b})`;
     };
@@ -137,7 +129,6 @@ function RGBColorGame() {
         if (JSON.stringify(color) === JSON.stringify(pickedColor)) {
             const newCorrectCounter = correctCounter + 1;
             setCorrectCounter(newCorrectCounter);
-            
             
             if (newCorrectCounter > bestScore) {
                 setBestScore(newCorrectCounter);
@@ -186,209 +177,155 @@ function RGBColorGame() {
     };
 
     return (
-        <div className="game-container">
-            {/* Mesaj de autentificare */}
-            {!currentUser && (
-                <div className="auth-notice">
-                    🔒 Autentifică-te pentru a salva scorul în contul tău!
-                </div>
-            )}
-
-            {isOverVisible && (
-                <div className="game-overlay">
-                    <h1 className="final-score final-score-current">Scor final: {correctCounter}</h1>
-                    <h1 className="final-score final-score-best">Cel mai bun scor: {bestScore}</h1>
-                    <button className="play-again-btn" onClick={() => setIsOverVisible(false)}>
-                        Joacă din nou
-                    </button>
-                </div>
-            )}
-
-            <div className="difficulty-container">
-                <div className="difficulty-buttons">
-                    <button 
-                        className={`difficulty-btn ${difficulty === 2 ? 'selected' : ''}`} 
-                        onClick={() => changeDifficulty(2)}
-                    >
-                        Ușor
-                    </button>
-                    <button 
-                        className={`difficulty-btn ${difficulty === 4 ? 'selected' : ''}`} 
-                        onClick={() => changeDifficulty(4)}
-                    >
-                        Normal
-                    </button>
-                    <button 
-                        className={`difficulty-btn ${difficulty === 6 ? 'selected' : ''}`} 
-                        onClick={() => changeDifficulty(6)}
-                    >
-                        Greu
-                    </button>
-                   
-                </div>
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black relative overflow-hidden">
+       
+            <div className="absolute inset-0">
+                <div className="absolute top-10 left-10 w-20 h-20 sm:w-32 sm:h-32 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute top-40 right-20 w-24 h-24 sm:w-40 sm:h-40 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                <div className="absolute bottom-20 left-1/3 w-32 h-32 sm:w-48 sm:h-48 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/5 to-pink-900/5"></div>
             </div>
 
+            <div className="relative z-10 p-4 sm:p-6 lg:p-8 w-full mx-auto">
            
-            <div className="color-format-container w-full flex justify-center">
-                <div className='mx-auto'>
-                <label className="format-label text-xl mr-10">Format afișare culori:</label>
-                
-                
-                <select 
-                    value={colorFormat} 
-                    onChange={(e) => setColorFormat(e.target.value)}
-                    className="format-select"
-                >
-                    <option value="RGB">RGB (255, 255, 255)</option>
-                    <option value="HEX">HEX (#FFFFFF)</option>
-                    <option value="HSL">HSL (360, 100%, 100%)</option>
-                </select>
-            </div>
-
- <button 
-                        className="help-btn  w-1/6"
-                        onClick={() => setShowHelp(true)}
-                        title="Cum se joacă?"
-                    >
-                        ?
-                    </button>
-
-            </div>
+                <div className="text-center mb-8">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                        RGB Color Game
+                    </h1>
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50"></div>
+                </div>
 
             
+                {!currentUser && (
+                    <div className="mb-6 p-4 bg-yellow-900/20 border border-yellow-400/30 rounded-xl backdrop-blur-lg">
+                        <p className="text-yellow-300 text-center text-sm sm:text-base">
+                            Autentifică-te pentru a salva scorul în contul tău!
+                        </p>
+                    </div>
+                )}
 
-            <div className="info-list">
-                <label className="info-item" style={{ color: 'rgb(239 68 68)' }}>
-                    Vieți: {score}
-                </label>
-                <label className="info-item" style={{ color: 'rgb(234 179 8)' }}>
-                    Scor Actual: {correctCounter}
-                </label>
-                <label className="info-item" style={{ color: 'rgb(59 130 246)' }}>
-                    Cel Mai Bun Scor: {bestScore}
-                </label>
-            </div>
-
-            <span className="color-display">{formatColor(pickedColor)}</span>
-
-            <div className="squares-container">
-                {colors.map((color, index) => (
-                    <div 
-                        key={index} 
-                        className="square" 
-                        style={{ backgroundColor: colorToCss(color) }} 
-                        onClick={() => handleSquareClick(color, index)}
-                    />
-                ))}
-            </div>
-
-            {/* Modal Help */}
-            {showHelp && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
-                        {/* Header cu X */}
-                        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between rounded-t-2xl">
-                            <h2 className="text-3xl font-bold text-gray-800">🎯 Cum se joacă Color Game</h2>
+                {isOverVisible && (
+                    <div className="fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center z-50 p-4">
+                        <div className="bg-gray-900/90 backdrop-blur-lg border border-cyan-400/50 rounded-2xl p-6 sm:p-8 text-center max-w-md w-full">
+                            <h2 className="text-xl sm:text-2xl font-bold text-cyan-400 mb-4">Game Over</h2>
+                            <div className="space-y-3 mb-6">
+                                <p className="text-pink-300 text-lg sm:text-xl">Scor final: {correctCounter}</p>
+                                <p className="text-purple-300 text-lg sm:text-xl">Cel mai bun scor: {bestScore}</p>
+                            </div>
                             <button 
-                                onClick={() => setShowHelp(false)}
-                                className="text-gray-500 hover:text-gray-700 text-4xl font-bold leading-none transition-colors"
-                                title="Închide"
+                                onClick={() => setIsOverVisible(false)}
+                                className="w-full px-6 py-3 bg-gradient-to-r from-cyan-600 to-purple-600 text-white font-bold rounded-xl hover:from-cyan-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
                             >
-                                ×
-                            </button>
-                        </div>
-
-                        {/* Conținut */}
-                        <div className="p-6 space-y-8">
-                            {/* Secțiunea 1: Obiectivul jocului */}
-                            <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
-                                <h3 className="text-xl font-bold text-blue-800 mb-4">🎯 Obiectivul Jocului</h3>
-                                <div className="space-y-3 text-gray-700">
-                                    <p><strong>Scopul:</strong> Găsește culoarea care corespunde valorii afișate</p>
-                                    <p><strong>Provocarea:</strong> Trebuie să recunoști culoarea doar din valorile numerice</p>
-                                    <p><strong>Învățare:</strong> Dezvolți înțelegerea formatelor de culori (RGB, HEX, HSL)</p>
-                                </div>
-                            </div>
-
-                            {/* Secțiunea 2: Cum se joacă */}
-                            <div className="bg-green-50 p-6 rounded-xl border-l-4 border-green-500">
-                                <h3 className="text-xl font-bold text-green-800 mb-4">🎮 Cum se Joacă</h3>
-                                <div className="space-y-3 text-gray-700">
-                                    <p><strong>1. Privește valoarea:</strong> Sus vei vedea o culoare exprimată în format RGB, HEX sau HSL</p>
-                                    <p><strong>2. Analizează pătratele:</strong> Compară toate pătratele colorate de pe ecran</p>
-                                    <p><strong>3. Ghicește culoarea:</strong> Click pe pătratul care crezi că corespunde valorii</p>
-                                    <p><strong>4. Primește feedback:</strong> Culori greșite devin negre, cele corecte îți dau puncte</p>
-                                </div>
-                            </div>
-
-                            {/* Secțiunea 3: Sisteme de punctaj */}
-                            <div className="bg-purple-50 p-6 rounded-xl border-l-4 border-purple-500">
-                                <h3 className="text-xl font-bold text-purple-800 mb-4">📊 Sistem de Punctaj</h3>
-                                <div className="space-y-3 text-gray-700">
-                                    <p><strong>🚨 Vieți:</strong> Începi cu 5 vieți. Pierzi câte una la fiecare greșeală</p>
-                                    <p><strong>🎯 Scor Actual:</strong> Câte culori ai ghicit corect în sesiunea curentă</p>
-                                    <p><strong>🏆 Cel Mai Bun Scor:</strong> Recordul tău personal (salvat automat)</p>
-                                    <p><strong>🔄 Game Over:</strong> Când rămâi fără vieți, jocul se resetează</p>
-                                </div>
-                            </div>
-
-                            {/* Secțiunea 4: Niveluri de dificultate */}
-                            <div className="bg-orange-50 p-6 rounded-xl border-l-4 border-orange-500">
-                                <h3 className="text-xl font-bold text-orange-800 mb-4">⚡ Niveluri de Dificultate</h3>
-                                <div className="space-y-3 text-gray-700">
-                                    <p><strong>🟢 Ușor:</strong> 2 pătrate - șanse mari de ghicire</p>
-                                    <p><strong>🟡 Normal:</strong> 4 pătrate - dificultate echilibrată</p>
-                                    <p><strong>🔴 Greu:</strong> 6 pătrate - provocare maximă</p>
-                                    <p><strong>💡 Strategie:</strong> Începe cu Ușor și avansează treptat</p>
-                                </div>
-                            </div>
-
-                            {/* Secțiunea 5: Formate de culori */}
-                            <div className="bg-indigo-50 p-6 rounded-xl border-l-4 border-indigo-500">
-                                <h3 className="text-xl font-bold text-indigo-800 mb-4">🎨 Formate de Culori</h3>
-                                <div className="space-y-3 text-gray-700">
-                                    <p><strong>RGB:</strong> Red, Green, Blue (0-255) - ex: rgb(255, 128, 64)</p>
-                                    <p><strong>HEX:</strong> Hexadecimal (#000000-#FFFFFF) - ex: #FF8040</p>
-                                    <p><strong>HSL:</strong> Hue, Saturation, Lightness - ex: hsl(30, 100%, 62%)</p>
-                                    <p><strong>💡 Tip:</strong> Experimentează cu toate formatele pentru a învăța mai bine</p>
-                                </div>
-                            </div>
-
-                            {/* Secțiunea 6: Strategii și sfaturi */}
-                            <div className="bg-yellow-50 p-6 rounded-xl border-l-4 border-yellow-500">
-                                <h3 className="text-xl font-bold text-yellow-800 mb-4">🧠 Strategii și Sfaturi</h3>
-                                <div className="space-y-2 text-gray-700">
-                                    <p>• <strong>RGB:</strong> Valorile mari înseamnă culori intense (255 = maxim)</p>
-                                    <p>• <strong>HEX:</strong> FF = 255, 00 = 0. Primele 2 cifre = roșu, următoarele 2 = verde, ultimele 2 = albastru</p>
-                                    <p>• <strong>HSL:</strong> H = nuanța (0-360°), S = saturația (0-100%), L = luminozitatea (0-100%)</p>
-                                    <p>• <strong>Practică:</strong> Cu timpul vei recunoaște pattern-urile</p>
-                                    <p>• <strong>Observație:</strong> Compară valorile mari/mici cu intensitatea culorilor</p>
-                                </div>
-                            </div>
-
-                            {/* Secțiunea 7: Salvare progres */}
-                            <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-gray-500">
-                                <h3 className="text-xl font-bold text-gray-800 mb-4">💾 Salvare Progres</h3>
-                                <div className="space-y-3 text-gray-700">
-                                    <p><strong>Fără cont:</strong> Scorul se salvează local în browser</p>
-                                    <p><strong>Cu cont:</strong> Scorul se sincronizează în cloud</p>
-                                    <p><strong>Avantaj:</strong> Păstrezi recordurile pe orice dispozitiv</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Footer */}
-                        <div className="sticky bottom-0 bg-gray-50 p-6 text-center border-t border-gray-200 rounded-b-2xl">
-                            <button 
-                                onClick={() => setShowHelp(false)}
-                                className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
-                            >
-                                Să începem jocul! 🎯
+                                Joacă din nou
                             </button>
                         </div>
                     </div>
+                )}
+
+            
+                <div className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                 
+                    <div className="flex gap-1 sm:gap-2">
+                        <button 
+                            className={`px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold transition-all duration-300 border-2 text-xs sm:text-sm ${
+                                difficulty === 2 
+                                    ? 'bg-green-600 border-green-400 text-white shadow-lg shadow-green-500/50' 
+                                    : 'bg-gray-900/60 border-green-400/30 text-green-300 hover:border-green-400/60 hover:bg-green-900/20'
+                            }`}
+                            onClick={() => changeDifficulty(2)}
+                        >
+                            Ușor
+                        </button>
+                        <button 
+                            className={`px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold transition-all duration-300 border-2 text-xs sm:text-sm ${
+                                difficulty === 4 
+                                    ? 'bg-yellow-600 border-yellow-400 text-white shadow-lg shadow-yellow-500/50' 
+                                    : 'bg-gray-900/60 border-yellow-400/30 text-yellow-300 hover:border-yellow-400/60 hover:bg-yellow-900/20'
+                            }`}
+                            onClick={() => changeDifficulty(4)}
+                        >
+                            Normal
+                        </button>
+                        <button 
+                            className={`px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold transition-all duration-300 border-2 text-xs sm:text-sm ${
+                                difficulty === 6 
+                                    ? 'bg-red-600 border-red-400 text-white shadow-lg shadow-red-500/50' 
+                                    : 'bg-gray-900/60 border-red-400/30 text-red-300 hover:border-red-400/60 hover:bg-red-900/20'
+                            }`}
+                            onClick={() => changeDifficulty(6)}
+                        >
+                            Greu
+                        </button>
+                    </div>
+
+         
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <label className="text-cyan-300 font-semibold text-xs sm:text-sm">
+                            Format afișare culori:
+                        </label>
+                        <select 
+                            value={colorFormat} 
+                            onChange={(e) => setColorFormat(e.target.value)}
+                            className="px-3 py-1 sm:px-4 sm:py-2 rounded-lg bg-gray-900/80 border-2 border-cyan-400/50 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-lg text-xs sm:text-sm"
+                        >
+                            <option value="RGB">RGB (255, 255, 255)</option>
+                            <option value="HEX">HEX (#FFFFFF)</option>
+                            <option value="HSL">HSL (360, 100%, 100%)</option>
+                        </select>
+                    </div>
                 </div>
-            )}
+
+      
+                <div className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
+                    <div className="bg-red-900/20 border border-red-400/30 rounded-lg p-3 text-center backdrop-blur-lg">
+                        <div className="text-red-300 font-semibold text-xs sm:text-sm">Vieți</div>
+                        <div className="text-red-400 text-lg sm:text-xl font-bold">{score}</div>
+                    </div>
+                    <div className="bg-yellow-900/20 border border-yellow-400/30 rounded-lg p-3 text-center backdrop-blur-lg">
+                        <div className="text-yellow-300 font-semibold text-xs sm:text-sm">Scor Actual</div>
+                        <div className="text-yellow-400 text-lg sm:text-xl font-bold">{correctCounter}</div>
+                    </div>
+                    <div className="bg-blue-900/20 border border-blue-400/30 rounded-lg p-3 text-center backdrop-blur-lg">
+                        <div className="text-blue-300 font-semibold text-xs sm:text-sm">Cel Mai Bun Scor</div>
+                        <div className="text-blue-400 text-lg sm:text-xl font-bold">{bestScore}</div>
+                    </div>
+                </div>
+
+      
+                <div className="mb-8 text-center">
+                    <div className="bg-gray-900/60 border-2 border-pink-400/50 rounded-xl p-4 sm:p-6 backdrop-blur-lg inline-block">
+                        <div className="text-pink-300 text-xs sm:text-sm mb-2 font-semibold">Găsește această culoare:</div>
+                        <div className="text-pink-400 text-lg sm:text-xl lg:text-2xl font-mono font-bold">
+                            {formatColor(pickedColor)}
+                        </div>
+                    </div>
+                </div>
+
+       
+                <div className={`grid justify-center items-center w-full   mx-auto ${
+                    numSquares === 2 ? 'grid-cols-2 gap-8 sm:gap-10 lg:gap-12' : 
+                    numSquares === 4 ? 'grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8' : 
+                    'grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10 lg:gap-12'
+                }`}>
+                    {colors.map((color, index) => (
+                        <div 
+                            key={index} 
+                            className="aspect-square w-40 m h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 xl:w-72 xl:h-72 rounded-3xl 
+                            cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl
+                             hover:shadow-white/40 border-3 border-white/30 hover:border-white/70 mx-10 justify-self-center"
+                            style={{ backgroundColor: colorToCss(color) }} 
+                            onClick={() => handleSquareClick(color, index)}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <style jsx>{`
+                @keyframes pulse {
+                    0%, 100% { opacity: 0.3; }
+                    50% { opacity: 0.8; }
+                }
+            `}</style>
         </div>
     );
 }

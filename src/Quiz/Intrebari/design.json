@@ -1,0 +1,84 @@
+{
+  "id": "culori-design-usor",
+  "title": "Culorile în Design",
+  "description": "Descoperă bazele aplicării culorilor în design grafic, web și artă digitală. Perfect pentru începători care vor să înțeleagă puterea culorilor",
+  "category": "Design",
+  "difficulty": "Ușor",
+  "timeLimit": 480,
+  "icon": "✍",
+  "color": "from-blue-400 to-purple-500",
+  "questions": [
+    {
+      "question": "În cât timp se formează prima impresie vizuală?",
+      "answers": ["0.01 secunde", "0.05 secunde", "0.1 secunde", "0.5 secunde"],
+      "correctAnswer": 1,
+      "explanation": "Prima impresie vizuală se formează în doar 0.05 secunde, făcând culorile extrem de importante în design."
+    },
+    {
+      "question": "Ce procent din comunicarea vizuală se bazează pe culoare?",
+      "answers": ["73%", "85%", "93%", "98%"],
+      "correctAnswer": 2,
+      "explanation": "93% din comunicarea vizuală se bazează pe culoare, demonstrând importanța enormă a alegerilor cromatice."
+    },
+    {
+      "question": "Ce combinație de culori folosește McDonald's pentru a stimula apetitul?",
+      "answers": ["Albastru și alb", "Verde și galben", "Roșu și galben", "Portocaliu și maro"],
+      "correctAnswer": 2,
+      "explanation": "McDonald's folosește roșu și galben pentru a stimula apetitul și a crea urgență în luarea deciziilor."
+    },
+    {
+      "question": "Care este raportul de contrast minim pentru text normal conform WCAG?",
+      "answers": ["3:1", "4.5:1", "7:1", "10:1"],
+      "correctAnswer": 1,
+      "explanation": "WCAG recomandă un contrast de minim 4.5:1 pentru textul normal pentru a asigura accesibilitatea."
+    },
+    {
+      "question": "Ce culoare este asociată cu încrederea în branding?",
+      "answers": ["Roșu", "Albastru", "Verde", "Galben"],
+      "correctAnswer": 1,
+      "explanation": "Albastrul este asociat cu încrederea și profesionalismul, fiind folosit de branduri ca IBM și Facebook."
+    },
+    {
+      "question": "În regula 60-30-10, ce procent ocupă culoarea de accent?",
+      "answers": ["10%", "30%", "60%", "20%"],
+      "correctAnswer": 0,
+      "explanation": "În regula 60-30-10, culoarea de accent ocupă 10% din design pentru a crea puncte focale eficiente."
+    },
+    {
+      "question": "Ce culoare mărește conversiile pentru butoanele de acțiune?",
+      "answers": ["Albastru", "Verde", "Portocaliu", "Violet"],
+      "correctAnswer": 2,
+      "explanation": "Portocaliul a demonstrat o creștere a conversiilor cu 32% față de alte culori pentru butoanele de acțiune."
+    },
+    {
+      "question": "Ce efect au tonurile calde în arta digitală?",
+      "answers": ["Creează distanță", "Transmit căldură și intimitate", "Reduc vizibilitatea", "Măresc contrastul"],
+      "correctAnswer": 1,
+      "explanation": "Tonurile calde (portocaliu, roșu) activează zonele cerebrale asociate cu confortul și intimitatea."
+    },
+    {
+      "question": "Care este cea mai bună practică pentru testarea unui logo?",
+      "answers": ["Doar pe ecran color", "Doar pe hârtie", "În grayscale pentru contrast", "Doar pe fundal alb"],
+      "correctAnswer": 2,
+      "explanation": "Testarea logo-ului în grayscale verifică dacă contrastul funcționează independent de culoare."
+    },
+    {
+      "question": "Ce procent crește recunoașterea brandului prin culorile corecte?",
+      "answers": ["40%", "60%", "80%", "100%"],
+      "correctAnswer": 2,
+      "explanation": "Culorile corecte pot creșterea recunoașterea brandului cu până la 80%."
+    },
+    {
+      "question": "Unde se procesează culorile în creier?",
+      "answers": ["În cortexul auditiv", "În cortexul vizual", "În hipocampus", "În cerebel"],
+      "correctAnswer": 1,
+      "explanation": "Culorile se procesează în cortexul vizual înainte ca informația să ajungă la zonele pentru forme și text."
+    },
+    {
+      "question": "Ce culoare se recomandă pentru mesajele de succes în interfețe?",
+      "answers": ["Roșu", "Verde", "Albastru", "Galben"],
+      "correctAnswer": 1,
+      "explanation": "Verdele este universally acceptat pentru mesajele de succes și confirmări pozitive în interfețe."
+    }
+  ]
+}

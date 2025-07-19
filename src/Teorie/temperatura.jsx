@@ -249,13 +249,6 @@ export default function ColorTemperaturePage(){
     }
   ];
 
-  const navigationItems = [
-    { id: 'intro', title: 'Introducere', icon: '🌡️' },
-    { id: 'science', title: 'Știința Temperaturii', icon: '🔬' },
-    { id: 'psychology', title: 'Psihologie și Emoții', icon: '🧠' },
-    { id: 'applications', title: 'Aplicații Practice', icon: '🛠️' },
-    { id: 'examples', title: 'Exemple Interactive', icon: '🎨' }
-  ];
 
   const getRoomColors = () => {
     switch(roomTemperature) {
@@ -287,29 +280,8 @@ export default function ColorTemperaturePage(){
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        <nav className="fixed top-20 left-8 z-40 hidden lg:block w-[15%]">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/20">
-          <h3 className="text-white font-semibold mb-4 text-center text-lg">Navigare</h3>
-          <div className="space-y-2">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
-                  activeSection === item.id
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                <span className="text-lg">{item.icon}</span>
-                <span className="text-base">{item.title}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-<div className="w-[100%] lg:w-[80%] lg:ml-[18%] px-4">
+      
+<div className="w-[100%]  px-4">
       <div className="pt-20 pb-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-8">
@@ -317,15 +289,9 @@ export default function ColorTemperaturePage(){
               onClick={() => navigate('/teorie')}
               className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-lg"
             >
-              ← Înapoi la Teorie
+              Înapoi la Teorie
             </button>
-            <button 
-              onClick={() => setShowHelp(true)}
-              className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors text-lg"
-              title="Ghid de navigare"
-            >
-              ?
-            </button>
+            
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-yellow-400 to-cyan-400 bg-clip-text text-transparent">

@@ -276,38 +276,12 @@ const VisualPerceptionPage = () => {
     }
   ];
 
-  const navigationItems = [
-    { id: 'intro', title: 'Introducere', icon: '👁️' },
-    { id: 'anatomy', title: 'Anatomia Ochiului', icon: '🔬' },
-    { id: 'process', title: 'Procesul de Percepție', icon: '⚡' },
-    { id: 'illusions', title: 'Iluzii Optice', icon: '🌀' },
-    { id: 'applications', title: 'Aplicații Practice', icon: '🛠️' }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        <nav className="fixed top-20 left-8 z-40 hidden lg:block w-[15%]">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/20">
-          <h3 className="text-white font-semibold mb-4 text-center text-lg">Navigare</h3>
-          <div className="space-y-2">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
-                  activeSection === item.id
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                <span className="text-lg">{item.icon}</span>
-                <span className="text-base">{item.title}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-<div className="w-[100%] lg:w-[80%] lg:ml-[18%] px-4">
+       
+<div className="w-[100%]  px-4">
       <div className="pt-20 pb-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-8">
@@ -315,15 +289,9 @@ const VisualPerceptionPage = () => {
               onClick={() => navigate('/teorie')}
               className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-lg"
             >
-              ← Înapoi la Teorie
+              Înapoi la Teorie
             </button>
-            <button 
-              onClick={() => setShowHelp(true)}
-              className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors text-lg"
-              title="Ghid de navigare"
-            >
-              ?
-            </button>
+            
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
@@ -594,19 +562,19 @@ const VisualPerceptionPage = () => {
               <div>
                 <h4 className="text-xl font-semibold text-white mb-4">Avantaje Evolutive</h4>
                 <ul className="text-white/80 text-lg space-y-2">
-                  <li>• Detectarea rapidă a marginilor și mișcării (pentru supraviețuire)</li>
-                  <li>• Compensarea automată pentru condițiile de lumină variabile</li>
-                  <li>• Economisirea energiei prin procesarea eficientă</li>
-                  <li>• Îmbunătățirea contrastului pentru recunoașterea obiectelor</li>
+                  <li> Detectarea rapidă a marginilor și mișcării (pentru supraviețuire)</li>
+                  <li> Compensarea automată pentru condițiile de lumină variabile</li>
+                  <li> Economisirea energiei prin procesarea eficientă</li>
+                  <li> Îmbunătățirea contrastului pentru recunoașterea obiectelor</li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-white mb-4">Limitări Moderne</h4>
                 <ul className="text-white/80 text-lg space-y-2">
-                  <li>• Sistemul vizual nu a evoluat pentru ecrane și lumină artificială</li>
-                  <li>• Confuzia între stimuli artificiali și naturali</li>
-                  <li>• Oboseala vizuală în medii digitale</li>
-                  <li>• Interpretarea greșită a culorilor pe dispozitive</li>
+                  <li> Sistemul vizual nu a evoluat pentru ecrane și lumină artificială</li>
+                  <li> Confuzia între stimuli artificiali și naturali</li>
+                  <li> Oboseala vizuală în medii digitale</li>
+                  <li> Interpretarea greșită a culorilor pe dispozitive</li>
                 </ul>
               </div>
             </div>
@@ -752,68 +720,7 @@ const VisualPerceptionPage = () => {
         </section>
       </div>
 
-      {showHelp && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-800">👁️ Ghid Percepția Vizuală</h2>
-              <button 
-                onClick={() => setShowHelp(false)}
-                className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
-              >
-                ×
-              </button>
-            </div>
-
-            <div className="p-6 space-y-6">
-              <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">🎯 Scopul Prezentării</h3>
-                <p className="text-gray-600 text-lg">
-                  Înțelege mecanismele științifice ale percepției vizuale pentru a crea 
-                  designuri și experiențe vizuale mai eficiente și impactante.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">🔬 Structura Științifică</h3>
-                <ul className="space-y-2 text-gray-600 text-lg">
-                  <li>• <strong>Anatomie</strong>: Structura ochiului și fotoreceptorii</li>
-                  <li>• <strong>Procesare</strong>: De la fotoni la percepția conștientă</li>
-                  <li>• <strong>Iluzii</strong>: Mecanismele neurologice și evolutive</li>
-                  <li>• <strong>Aplicații</strong>: Design, artă și comunicare vizuală</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">⚡ Interactivitate</h3>
-                <ul className="space-y-2 text-gray-600 text-lg">
-                  <li>• Demonstrații vizuale pentru fiecare concept</li>
-                  <li>• Experimente interactive de percepție</li>
-                  <li>• Exemple practice din design și artă</li>
-                  <li>• Teste de acuitate și iluzii optice</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">🎯 După Prezentare</h3>
-                <p className="text-gray-600 text-lg">
-                  Vei înțelege cum funcționează vederea în culori și vei putea aplica 
-                  aceste cunoștințe pentru a crea experiențe vizuale mai eficiente.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-6 border-t border-gray-200 text-center">
-              <button 
-                onClick={() => setShowHelp(false)}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-colors text-lg"
-              >
-                Să explorez vederea! 👁️
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+     
     </div>
     </div>
   );

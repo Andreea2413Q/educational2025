@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getFirestore, collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
-import { useAuth } from '../Cont/authContext'; // presupun contextul tău de autentificare
+import { useAuth } from '../Cont/authContext';
 
 const db = getFirestore();
 
@@ -12,7 +12,7 @@ function Wolearn() {
   const [userWord, setUserWord] = useState('');
   const [minLength, setMinLength] = useState(1);
   const [maxLength, setMaxLength] = useState(10);
-  const [inputBorderColor, setInputBorderColor] = useState('border-black');
+  const [inputBorderColor, setInputBorderColor] = useState('border-cyan-400');
   const [noteTitle, setNoteTitle] = useState('');
   const [notes, setNotes] = useState([]);
   const [error, setError] = useState('');
@@ -46,7 +46,7 @@ function Wolearn() {
       return;
     }
 
-    const notesRef = collection(db, 'users', currentUser.uid, 'notes');
+    const notesRef = collection(db, 'users', currentUser.uid, 'Wonotes');
     const unsubscribe = onSnapshot(notesRef, (snapshot) => {
       const notesData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setNotes(notesData);
@@ -62,10 +62,11 @@ function Wolearn() {
   useEffect(() => {
     if (userWord.trim().toLowerCase() === highlightWord.trim().toLowerCase() && highlightWord !== '') {
       setUserWord('');
-      setInputBorderColor('border-green-500');
+      setInputBorderColor('border-green-400 shadow-green-400/50');
       selectRandomWord(inputText);
+      setTimeout(() => setInputBorderColor('border-cyan-400'), 1000);
     } else {
-      setInputBorderColor('border-black');
+      setInputBorderColor('border-cyan-400');
     }
   }, [userWord, highlightWord, inputText]);
 
@@ -73,8 +74,8 @@ function Wolearn() {
     if (!text) return '';
     return text.split(' ').map((word) => (
       word === highlightWord
-        ? `<span class="underline text-green-400">${word}</span>`
-        : `<span class="text-black">${word}</span>`
+        ? `<span class="underline text-pink-400 font-bold animate-pulse glow-pink">${word}</span>`
+        : `<span class="text-cyan-100">${word}</span>`
     )).join(' ');
   };
 
@@ -93,7 +94,7 @@ function Wolearn() {
   const reset = () => {
     selectRandomWord(inputText);
     setUserWord('');
-    setInputBorderColor('border-black');
+    setInputBorderColor('border-cyan-400');
   };
 
   const saveOrUpdateNote = async () => {
@@ -106,7 +107,7 @@ function Wolearn() {
       return;
     }
 
-    const notesRef = collection(db, 'users', currentUser.uid, 'notes');
+    const notesRef = collection(db, 'users', currentUser.uid, 'Wonotes');
 
     try {
       const existingNote = notes.find(note => note.title === noteTitle && note.id !== noteToEditId);
@@ -117,7 +118,7 @@ function Wolearn() {
       }
 
       if (editMode && noteToEditId) {
-        const noteDocRef = doc(db, 'users', currentUser.uid, 'notes', noteToEditId);
+        const noteDocRef = doc(db, 'users', currentUser.uid, 'Wonotes', noteToEditId);
         await updateDoc(noteDocRef, {
           title: noteTitle,
           text: inputText
@@ -169,7 +170,7 @@ function Wolearn() {
       return;
     }
     try {
-      const noteDocRef = doc(db, 'users', currentUser.uid, 'notes', noteId);
+      const noteDocRef = doc(db, 'users', currentUser.uid, 'Wonotes', noteId);
       await deleteDoc(noteDocRef);
 
       if (noteToEditId === noteId) {
@@ -186,123 +187,232 @@ function Wolearn() {
   };
 
   return (
-    <div className="App p-4 bg-b2 min-h-screen">
-      <textarea
-        value={inputText}
-        onChange={handleInputChange}
-        className={`border rounded p-2 m-2 w-full text-center ${inputBorderColor} sm:text-sm md:text-md lg:text-lg xl:text-xl`}
-        placeholder="Te rog introdu textul aici..."
-        style={{ minHeight: '150px', resize: 'both' }}
-      />
-      <div
-        className="border-2 border-b5 rounded p-2 m-2 w-full sm:text-sm md:text-md lg:text-lg xl:text-xl"
-        dangerouslySetInnerHTML={{ __html: formatText(inputText) }}
-        style={{ minHeight: '150px', overflow: 'auto' }}
-      />
-      <div className="w-full flex mx-auto">
-        <input
-          type="text"
-          value={userWord}
-          onChange={handleUserWordChange}
-          className={`border rounded p-2 m-2
-            sm:w-64 sm:h-4 sm:text-smc 
-            md:w-96 md:h-6 md:text-mdc text-blue-800 md:py-2
-            lg:w-128 lg:h-8 lg:text-lg 
-            xl:w-2/5 xl:h-10 xl:text-xl 
-            ${inputBorderColor}`}
-          placeholder="Scrie cuvântul subliniat aici..."
-        />
-        <button
-          className="h-12 m-auto text-center justify-center text-2xl text-violet-600 font-bold bg-slate-100 rounded-2xl hover:bg-green-400 duration-500 transition-all hover:text-blue-600
-            sm:text-sm sm:w-32 sm:h-6
-            md:text-md md:w-40 md:h-7
-            lg:text-lg lg:w-48 lg:h-8
-            xl:text-xl xl:w-1/5 xl:h-10"
-          onClick={reset}
-        >
-          Resetare
-        </button>
-      </div>
-      <div className="w-full flex justify-between mt-4 align-middle items-center">
-        <input
-          type="number"
-          value={minLength}
-          onChange={handleMinLengthChange}
-          className="border rounded p-2 text-center
-           sm:text-mdc sm:w-16 sm:h-5
-           md:text-md md:w-24 md:h-6
-           lg:text-lg lg:w-32 lg:h-8
-           xl:text-xl xl:w-48 xl:h-10"
-          placeholder="Lungime minimă"
-        />
-        <h1 className="w-2/5 text-black text-center m-auto font-bold sm:text-md md:text-lg lg:text-xl xl:text-xl">
-          Selectează numărul minim și maxim de litere pentru cuvântul tău
-        </h1>
-        <input
-          type="number"
-          value={maxLength}
-          onChange={handleMaxLengthChange}
-          className="border rounded p-2  text-center
-           sm:text-md sm:w-16 sm:h-5
-           md:text-lg md:w-24 md:h-6
-           lg:text-xl lg:w-32 lg:h-8
-           xl:text-2xl xl:w-48 xl:h-10"
-          placeholder="Lungime maximă"
-        />
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black relative overflow-hidden">
+     
+      <div className="absolute inset-0">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/3 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/5 to-pink-900/5"></div>
       </div>
 
-      <div className="mt-6 flex items-center">
-        <input
-          type="text"
-          value={noteTitle}
-          onChange={handleNoteTitleChange}
-          className="border rounded p-2 m-2 w-2/5 
-          sm:text-sdc sm:w-48
-          md:text-mdc md:w-64 
-          lg:text-lg lg:w-96 
-          xl:text-xl xl:w-2/5 h-full"
-          placeholder="Titlul notei"
-        />
-        <button
-          className="duration-700 w-1/6 h-12 m-auto text-center justify-center text-2xl text-violet-600 font-bold bg-slate-100 rounded-2xl hover:bg-green-400 transition hover:text-blue-600
-          sm:text-smc sm:w-32 sm:h-7
-          md:text-mdc md:w-40 md:h-9
-          lg:text-lg lg:w-48 lg:h-10
-          xl:text-2xl xl:w-64 xl:h-12"
-          onClick={saveOrUpdateNote}
-        >
-          {editMode ? 'Actualizează Nota' : 'Salvează Nota'}
-        </button>
-        {error && <p className="text-red-500 mt-2">{error}</p>}
+      <div className="relative z-10 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
+       
+        <div className="text-center mb-8">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">
+            Wolearn
+          </h1>
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50"></div>
+        </div>
+
+       
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div className="space-y-4">
+            <label className="block text-cyan-300 font-semibold text-sm sm:text-base">
+              Introdu textul
+            </label>
+            <textarea
+              value={inputText}
+              onChange={handleInputChange}
+              className={`w-full h-32 sm:h-40 lg:h-48 p-4 rounded-xl border-2 ${inputBorderColor} 
+                bg-gray-900/80 backdrop-blur-lg text-cyan-100 placeholder-cyan-500/50 
+                focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:shadow-lg focus:shadow-cyan-400/25
+                resize-none transition-all duration-300 text-sm sm:text-base`}
+              placeholder="Te rog introdu textul aici..."
+            />
+          </div>
+
+          <div className="space-y-4">
+            <label className="block text-pink-300 font-semibold text-sm sm:text-base">
+              Text formatat
+            </label>
+            <div
+              className="w-full h-32 sm:h-40 lg:h-48 p-4 rounded-xl border-2 border-pink-400/50 
+                bg-gray-900/80 backdrop-blur-lg overflow-auto scrollbar-thin scrollbar-thumb-pink-400/50"
+              dangerouslySetInnerHTML={{ __html: formatText(inputText) }}
+              style={{ scrollbarWidth: 'thin' }}
+            />
+          </div>
+        </div>
+
+    
+        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <div className="flex-1">
+            <label className="block text-cyan-300 font-semibold mb-2 text-sm sm:text-base">
+              Scrie cuvântul subliniat
+            </label>
+            <input
+              type="text"
+              value={userWord}
+              onChange={handleUserWordChange}
+              className={`w-full p-3 sm:p-4 rounded-xl border-2 ${inputBorderColor} 
+                bg-gray-900/80 backdrop-blur-lg text-cyan-100 placeholder-cyan-500/50 
+                focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:shadow-lg focus:shadow-cyan-400/25
+                text-sm sm:text-base transition-all duration-300`}
+              placeholder="Scrie cuvântul subliniat aici..."
+            />
+          </div>
+          <div className="flex items-end">
+            <button
+              onClick={reset}
+              className="w-full sm:w-auto px-6 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 
+                text-white font-bold rounded-xl hover:from-purple-700 hover:to-pink-700 
+                transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/50
+                text-sm sm:text-base border border-purple-400/50"
+            >
+              Resetare
+            </button>
+          </div>
+        </div>
+
+     
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 items-center">
+          <div>
+            <label className="block text-cyan-300 font-semibold mb-2 text-sm">Lungime minimă</label>
+            <input
+              type="number"
+              value={minLength}
+              onChange={handleMinLengthChange}
+              className="w-full p-3 rounded-xl border-2 border-cyan-400/50 bg-gray-900/80 backdrop-blur-lg 
+                text-cyan-100 text-center focus:outline-none focus:ring-2 focus:ring-cyan-400/50
+                text-sm sm:text-base"
+            />
+          </div>
+          
+          <div className="text-center">
+            <h2 className="text-sm sm:text-base lg:text-lg font-bold text-transparent bg-gradient-to-r 
+              from-cyan-400 to-pink-400 bg-clip-text px-2">
+              Selectează numărul minim și maxim de litere pentru cuvântul tău
+            </h2>
+          </div>
+          
+          <div>
+            <label className="block text-pink-300 font-semibold mb-2 text-sm">Lungime maximă</label>
+            <input
+              type="number"
+              value={maxLength}
+              onChange={handleMaxLengthChange}
+              className="w-full p-3 rounded-xl border-2 border-pink-400/50 bg-gray-900/80 backdrop-blur-lg 
+                text-pink-100 text-center focus:outline-none focus:ring-2 focus:ring-pink-400/50
+                text-sm sm:text-base"
+            />
+          </div>
+        </div>
+
+   
+        <div className="bg-gray-900/40 backdrop-blur-lg rounded-2xl border border-cyan-400/30 p-4 sm:p-6 mb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text mb-4">
+            Salvează nota
+          </h3>
+          
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1">
+              <input
+                type="text"
+                value={noteTitle}
+                onChange={handleNoteTitleChange}
+                className="w-full p-3 sm:p-4 rounded-xl border-2 border-cyan-400/50 bg-gray-900/80 backdrop-blur-lg 
+                  text-cyan-100 placeholder-cyan-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/50
+                  text-sm sm:text-base"
+                placeholder="Titlul notei"
+              />
+            </div>
+            
+            <button
+              onClick={saveOrUpdateNote}
+              className="px-6 py-3 sm:py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold 
+                rounded-xl hover:from-cyan-700 hover:to-blue-700 transform hover:scale-105 
+                transition-all duration-300 shadow-lg hover:shadow-cyan-500/50 border border-cyan-400/50
+                text-sm sm:text-base"
+            >
+              {editMode ? 'Actualizează ' : 'Salvează '}
+            </button>
+          </div>
+          
+          {error && (
+            <div className="mt-4 p-3 bg-red-900/50 border border-red-400/50 rounded-xl text-red-300 text-sm">
+              {error}
+            </div>
+          )}
+        </div>
+
+     
+        <div className="bg-gray-900/40 backdrop-blur-lg rounded-2xl border border-pink-400/30 p-4 sm:p-6">
+          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text mb-6">
+            Texte Salvate ({notes.length})
+          </h3>
+          
+          {notes.length === 0 ? (
+            <div className="text-center py-8">
+              <p className="text-cyan-300/70 text-sm sm:text-base">Nu există note salvate încă.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {notes.map((note) => (
+                <div
+                  key={note.id}
+                  className={`relative group cursor-pointer p-4 rounded-xl border-2 transition-all duration-300
+                    ${activeNoteId === note.id 
+                      ? 'border-pink-400 bg-pink-900/20 shadow-lg shadow-pink-400/25' 
+                      : 'border-cyan-400/30 bg-gray-900/60 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-400/25'
+                    }`}
+                >
+                  <div
+                    onClick={() => loadNote(note.id)}
+                    className="flex-1"
+                  >
+                    <h4 className={`font-bold text-sm sm:text-base mb-2 transition-all duration-300 
+                      ${activeNoteId === note.id ? 'text-pink-300' : 'text-cyan-300 group-hover:text-cyan-200'}`}>
+                      {note.title}
+                    </h4>
+                    <p className="text-gray-400 text-xs sm:text-sm line-clamp-3">
+                      {note.text.substring(0, 100)}...
+                    </p>
+                  </div>
+                  
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      deleteNote(note.id);
+                    }}
+                    className="absolute top-2 right-2 w-6 h-6 sm:w-8 sm:h-8 bg-red-600/80 hover:bg-red-600 
+                      text-white rounded-full flex items-center justify-center text-xs sm:text-sm 
+                      transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100"
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
-      <div className="mt-6">
-        <h2 className="text-2xl font-bold mb-2 text-white sm:text-md md:text-lg lg:text-xl xl:text-2xl">Texte Salvate</h2>
-        <ul className="list-disc pl-5">
-          {notes.map((note) => (
-            <li key={note.id} className="flex justify-center items-center cursor-pointer mb-2">
-              <span
-                onClick={() => loadNote(note.id)}
-                className={`sm:text-md md:text-lg lg:text-xl xl:text-2xl w-2/5 font-bold transition-all duration-500 ${
-                  activeNoteId === note.id ? 'text-white' : 'text-yellow-400'
-                } hover:text-d3`}
-              >
-                {note.title}
-              </span>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  deleteNote(note.id);
-                }}
-                className="text-xl font-bold text-red-500 duration-500 hover:text-red-700 sm:text-sm md:text-md lg:text-lg xl:text-xl"
-              >
-                Șterge
-              </button>
-            </li>
-          ))}
-          {notes.length === 0 && <p className="text-d3">Nu există note salvate încă.</p>}
-        </ul>
-      </div>
+      <style jsx>{`
+        .glow-pink {
+          text-shadow: 0 0 10px rgba(236, 72, 153, 0.8);
+        }
+        .scrollbar-thin::-webkit-scrollbar {
+          width: 4px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-track {
+          background: rgba(75, 85, 99, 0.3);
+          border-radius: 2px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+          background: rgba(236, 72, 153, 0.5);
+          border-radius: 2px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+          background: rgba(236, 72, 153, 0.7);
+        }
+        .line-clamp-3 {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+      `}</style>
     </div>
   );
 }

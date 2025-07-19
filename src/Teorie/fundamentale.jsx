@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 const FundamentalsPage = () => {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('intro');
-  const [showHelp, setShowHelp] = useState(false);
 
   // Auto-scroll pentru secțiuni
   useEffect(() => {
@@ -48,44 +47,13 @@ const FundamentalsPage = () => {
     { name: 'Violet', hex: '#8000FF', description: 'Roșu + Albastru = Mister și spiritualitate', mix: ['#FF0000', '#0000FF'] }
   ];
 
-  const navigationItems = [
-    { id: 'intro', title: 'Introducere', icon: '🎯' },
-    { id: 'primary', title: 'Culori Primare', icon: '🔴' },
-    { id: 'secondary', title: 'Culori Secundare', icon: '🟠' },
-    { id: 'tertiary', title: 'Culori Terțiare', icon: '🟡' },
-    { id: 'wheel', title: 'Cercul Cromatic', icon: '🎨' },
-    { id: 'properties', title: 'Proprietăți', icon: '⚙️' }
-  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
+    <div className="min-h-screen bg-gradient-to-br w-full  from-slate-900 via-purple-900 to-indigo-900">
 
-      {/* Fixed Navigation */}
 
-      <nav className="fixed top-20 left-8 z-40 hidden lg:block w-[15%]">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/20">
-          <h3 className="text-white font-semibold mb-4 text-center">Navigare</h3>
-          <div className="space-y-2">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
-                  activeSection === item.id
-                    ? 'bg-gradient-to-r from-blue-800 to-green-500 text-white'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                <span>{item.icon}</span>
-                <span className="text-sm">{item.title}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* Header */}
-       <div className="w-[100%] lg:w-[80%] lg:ml-[18%] px-4">
+    
+       <div className="w-[100%]  px-4">
       <div className="pt-20 pb-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-8">
@@ -93,15 +61,9 @@ const FundamentalsPage = () => {
               onClick={() => navigate('/teorie')}
               className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
             >
-              ← Înapoi la Teorie
+              Înapoi la Teorie
             </button>
-            <button 
-              onClick={() => setShowHelp(true)}
-              className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
-              title="Ghid de navigare"
-            >
-              ?
-            </button>
+           
           </div>
           
           <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400  to-white bg-clip-text text-transparent">
@@ -115,7 +77,7 @@ const FundamentalsPage = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-8 pb-20">
-        {/* Introducere */}
+    
         <section id="intro" className="mb-20">
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
             <h2 className="text-4xl font-bold text-white mb-6">⌲ Ce Vei Învăța</h2>
@@ -166,7 +128,7 @@ const FundamentalsPage = () => {
           </div>
         </section>
 
-        {/* Culori Primare */}
+    
         <section id="primary" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">🔴 Culorile Primare</h2>
@@ -204,7 +166,7 @@ const FundamentalsPage = () => {
           </div>
         </section>
 
-        {/* Culori Secundare */}
+       
         <section id="secondary" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">🟠 Culorile Secundare</h2>
@@ -218,7 +180,7 @@ const FundamentalsPage = () => {
             {secondaryColors.map((color, index) => (
               <div key={index} className="group">
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300">
-                  {/* Demonstrație amestec */}
+                 
                   <div className="flex items-center justify-center mb-6 gap-2">
                     <div 
                       className="w-8 h-8 rounded-full border-2 border-white/20"
@@ -267,7 +229,7 @@ const FundamentalsPage = () => {
           </div>
         </section>
 
-        {/* Culori Terțiare */}
+      
         <section id="tertiary" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">🟡 Culorile Terțiare</h2>
@@ -311,7 +273,6 @@ const FundamentalsPage = () => {
           </div>
         </section>
 
-        {/* Cercul Cromatic */}
         <section id="wheel" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">🎨 Cercul Cromatic</h2>
@@ -323,22 +284,22 @@ const FundamentalsPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              {/* Cerc cromatic vizual interactiv */}
+              
               <div className="relative w-80 h-80 mx-auto">
-                {/* Cercul cromatic principal */}
+               
                 <div className="absolute inset-0 rounded-full bg-gradient-conic from-red-500 via-orange-500 via-yellow-500 via-lime-500 via-green-500 via-teal-500 via-cyan-500 via-sky-500 via-blue-500 via-indigo-500 via-purple-500 via-pink-500 to-red-500 animate-pulse"></div>
                 
-                {/* Puncte pentru culorile primare */}
+             
                 <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-500 rounded-full border-2 border-white shadow-lg hover:scale-125 transition-transform cursor-pointer" title="Roșu - Primar"></div>
                 <div className="absolute bottom-20 right-8 w-6 h-6 bg-blue-500 rounded-full border-2 border-white shadow-lg hover:scale-125 transition-transform cursor-pointer" title="Albastru - Primar"></div>
                 <div className="absolute bottom-20 left-8 w-6 h-6 bg-yellow-500 rounded-full border-2 border-white shadow-lg hover:scale-125 transition-transform cursor-pointer" title="Galben - Primar"></div>
                 
-                {/* Puncte pentru culorile secundare */}
+             
                 <div className="absolute top-20 right-12 w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-lg hover:scale-125 transition-transform cursor-pointer" title="Portocaliu - Secundar"></div>
                 <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-lg hover:scale-125 transition-transform cursor-pointer" title="Verde - Secundar"></div>
                 <div className="absolute top-20 left-12 w-4 h-4 bg-purple-500 rounded-full border-2 border-white shadow-lg hover:scale-125 transition-transform cursor-pointer" title="Violet - Secundar"></div>
                 
-                {/* Centrul cercului */}
+              
                 <div className="absolute inset-12 rounded-full bg-gradient-to-br from-slate-900 to-purple-900 flex items-center justify-center border-4 border-white/20">
                   <div className="text-center">
                     <div className="text-4xl mb-2">🎨</div>
@@ -354,27 +315,27 @@ const FundamentalsPage = () => {
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                 <h3 className="text-xl font-semibold text-white mb-3">📐 Structura Cercului</h3>
                 <ul className="space-y-2 text-white/80 text-lg">
-                  <li>• <strong>12 culori</strong> dispuse circular</li>
-                  <li>• <strong>3 primare</strong> la 120° distanță</li>
-                  <li>• <strong>3 secundare</strong> între primare</li>
-                  <li>• <strong>6 terțiare</strong> completează cercul</li>
+                  <li><strong>12 culori</strong> dispuse circular</li>
+                  <li> <strong>3 primare</strong> la 120° distanță</li>
+                  <li> <strong>3 secundare</strong> între primare</li>
+                  <li><strong>6 terțiare</strong> completează cercul</li>
                 </ul>
               </div>
 
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                 <h3 className="text-xl font-semibold text-white mb-3">🎯 Utilitatea Practică</h3>
                 <ul className="space-y-2 text-white/80 text-lg">
-                  <li>• Identifică <strong>culorile complementare</strong></li>
-                  <li>• Creează <strong>scheme armonice</strong></li>
-                  <li>• Înțelege <strong>relațiile cromatice</strong></li>
-                  <li>• Ghidează <strong>alegerile de design</strong></li>
+                  <li> Identifică <strong>culorile complementare</strong></li>
+                  <li> Creează <strong>scheme armonice</strong></li>
+                  <li> Înțelege <strong>relațiile cromatice</strong></li>
+                  <li> Ghidează <strong>alegerile de design</strong></li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Proprietăți */}
+       
         <section id="properties" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">⚙️ Proprietățile Culorilor</h2>
@@ -460,7 +421,7 @@ const FundamentalsPage = () => {
           </div>
         </section>
 
-        {/* Concluzie și Navigare */}
+       
         <section className="text-center">
           <div className="bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
             <h3 className="text-3xl font-bold text-white mb-4">🎯 Recapitulare</h3>
@@ -481,80 +442,15 @@ const FundamentalsPage = () => {
                 onClick={() => navigate('/quiz')}
                 className="bg-gradient-to-r from-green-500 to-teal-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-teal-600 transition-all duration-300"
               >
-                🎯 Testează: Quiz Fundamentale
+                 Testează: Quiz Fundamentale
               </button>
             </div>
           </div>
         </section>
       </div>
 
-      {/* Modal Help */}
-      {showHelp && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-800">📖 Ghid de Navigare</h2>
-              <button 
-                onClick={() => setShowHelp(false)}
-                className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
-              >
-                ×
-              </button>
-            </div>
-
-            <div className="p-6 space-y-6">
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">🧭 Cum să Navighezi</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• <strong>Meniu lateral</strong> (desktop): Click pe orice secțiune pentru a sări direct la ea</li>
-                  <li>• <strong>Scroll natural</strong>: Navighează prin pagină și meniul se actualizează automat</li>
-                  <li>• <strong>Butoane de navigare</strong>: La final găsești link-uri către următoarele capitole</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">📚 Structura Paginii</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• <strong>Introducere</strong>: Prezentare generală și ce vei învăța</li>
-                  <li>• <strong>Culori Primare</strong>: Roșu, Albastru, Galben - fundația teoriei</li>
-                  <li>• <strong>Culori Secundare</strong>: Verde, Portocaliu, Violet - rezultatul amestecului</li>
-                  <li>• <strong>Culori Terțiare</strong>: Cele 6 nuanțe intermediare</li>
-                  <li>• <strong>Cercul Cromatic</strong>: Reprezentarea vizuală a relațiilor</li>
-                  <li>• <strong>Proprietăți</strong>: Nuanța, Saturația, Luminozitatea</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">💡 Sfaturi pentru Învățare</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• <strong>Ia-o pas cu pas</strong>: Nu te grăbi, înțelege fiecare concept</li>
-                  <li>• <strong>Observă exemplele</strong>: Fiecare culoare are demonstrații vizuale</li>
-                  <li>• <strong>Experimentează</strong>: Încearcă să combini culorile mental</li>
-                  <li>• <strong>Revino</strong>: Conceptele se consolidează prin repetare</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">🎯 După Această Lecție</h3>
-                <p className="text-gray-600">
-                  Vei înțelege cum toate culorile se derivă din doar 3 culori de bază și vei putea 
-                  să identifici relațiile dintre diferite nuanțe. Această cunoaștere este fundamentală 
-                  pentru toate capitolele următoare despre psihologie, armonie și design.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-6 border-t border-gray-200 text-center">
-              <button 
-                onClick={() => setShowHelp(false)}
-                className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Am Înțeles! 🎨
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+    
+    
     </div>
     </div>
   );

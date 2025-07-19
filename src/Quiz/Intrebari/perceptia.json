@@ -1,0 +1,122 @@
+{
+  "id": "perceptia-vizuala-intermediar",
+  "title": "Percepția Vizuală",
+  "description": "Explorează mecanismele complexe ale vederii în culori, de la anatomia ochiului la iluziile optice. Înțelege cum sistemul vizual uman procesează și interpretează culorile",
+  "category": "Design",
+  "difficulty": "Intermediar",
+  "timeLimit": 720,
+  "icon": "👁️",
+  "color": "from-purple-500 to-pink-500",
+  "questions": [
+    {
+      "question": "Câte nuanțe diferite poate distinge ochiul uman?",
+      "answers": ["1 milion", "5 milioane", "10 milioane", "20 milioane"],
+      "correctAnswer": 2,
+      "explanation": "Ochiul uman poate distinge peste 10 milioane de nuanțe diferite, o performanță care depășește oricare instrument creat de om."
+    },
+    {
+      "question": "Între ce lungimi de undă se află spectrul roșu?",
+      "answers": ["520-600nm", "620-750nm", "380-450nm", "450-520nm"],
+      "correctAnswer": 1,
+      "explanation": "Roșul corespunde lungimilor de undă de 620-750nm în spectrul electromagnetic vizibil."
+    },
+    {
+      "question": "În cât timp procesează ochiul informația despre culoare?",
+      "answers": ["5 milisecunde", "13 milisecunde", "50 milisecunde", "100 milisecunde"],
+      "correctAnswer": 1,
+      "explanation": "Ochiul procesează informația despre culoare în doar 13 milisecunde, demonstrând eficiența extraordinară a sistemului vizual."
+    },
+    {
+      "question": "Ce procent din conurile ochiului sunt de tip L (roșu)?",
+      "answers": ["32%", "50%", "64%", "80%"],
+      "correctAnswer": 2,
+      "explanation": "64% din conurile ochiului sunt de tip L (sensibile la roșu), 32% sunt M (verde) și doar 2% sunt S (albastru)."
+    },
+    {
+      "question": "La ce lungime de undă au sensibilitatea maximă conurile M?",
+      "answers": ["420nm", "530nm", "560nm", "650nm"],
+      "correctAnswer": 1,
+      "explanation": "Conurile M (medii) au sensibilitatea maximă la 530nm, corespunzătoare culorii verzi."
+    },
+    {
+      "question": "Ce procent din cortexul cerebral este dedicat vederii?",
+      "answers": ["15%", "20%", "30%", "45%"],
+      "correctAnswer": 2,
+      "explanation": "30% din cortexul cerebral este dedicat vederii, demonstrând importanța enormă a sistemului vizual pentru funcționarea umană."
+    },
+    {
+      "question": "Câte fibre ale nervului optic transportă informația vizuală?",
+      "answers": ["500.000", "1 milion", "2 milioane", "5 milioane"],
+      "correctAnswer": 1,
+      "explanation": "Un milion de fibre ale nervului optic transportă informația vizuală de la ochi la creier."
+    },
+    {
+      "question": "Ce se întâmplă în iluziile de contrast simultan?",
+      "answers": [
+        "Culorile se schimbă fizic",
+        "Aceeași culoare pare diferită pe fundaluri diferite",
+        "Ochiul vede culori inexistente",
+        "Creierul nu procesează corect culorile"
+      ],
+      "correctAnswer": 1,
+      "explanation": "În contrastul simultan, aceeași culoare pare diferită pe fundaluri diferite din cauza mecanismelor neuronale de accentuare a diferențelor."
+    },
+    {
+      "question": "Ce cauzează fenomenul de afterimage?",
+      "answers": [
+        "Oboseala ochilor",
+        "Adaptarea cromatică - scăderea sensibilității la o culoare",
+        "Defecte ale retinei",
+        "Procesarea lentă în creier"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Afterimage apare din cauza adaptării cromatice - după expunerea prelungită la o culoare, sensibilitatea la acea culoare scade temporar."
+    },
+    {
+      "question": "Ce face cristalinul cu vârsta în legătură cu percepția culorilor?",
+      "answers": [
+        "Devine mai transparent",
+        "Își pierde elasticitatea complet",
+        "Devine mai galben și reduce percepția albastru-violet",
+        "Se micșorează considerabil"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Cu vârsta, cristalinul devine mai galben, reducând percepția culorilor albastru-violet din spectru."
+    },
+    {
+      "question": "Ce sunt canalele opponent în procesarea vizuală?",
+      "answers": [
+        "Roșu-verde, albastru-galben, luminos-întunecat",
+        "Doar roșu-verde și albastru-galben",
+        "Toate culorile procesate separat",
+        "Diferite zone ale retinei"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Canalele opponent organizează semnalele în trei perechi: roșu-verde, albastru-galben și luminos-întunecat pentru procesarea eficientă."
+    },
+    {
+      "question": "Bastonașele sunt de câte ori mai sensibile la lumină decât conurile?",
+      "answers": ["10 ori", "100 ori", "500 ori", "1000 ori"],
+      "correctAnswer": 2,
+      "explanation": "Bastonașele sunt de 500 de ori mai sensibile la lumină decât conurile, dar nu pot distinge culorile."
+    },
+    {
+      "question": "În ce zonă cerebrală se integrează informația de culoare cu memoria?",
+      "answers": ["V1 (cortexul vizual primar)", "V4 și IT", "Talamul lateral", "Cortexul frontal"],
+      "correctAnswer": 1,
+      "explanation": "Zonele V4 și IT (temporal inferior) integrează informația de culoare cu memoria și contextul pentru percepția finală."
+    },
+    {
+      "question": "Ce tehnică artistică exploatează fuziunea optică?",
+      "answers": ["Impasto", "Pointillismul", "Glazing", "Chiaroscuro"],
+      "correctAnswer": 1,
+      "explanation": "Pointillismul exploatează fuziunea optică - creierul combină punctele de culoare pură în nuanțe complexe la distanță."
+    },
+    {
+      "question": "Câți fotoreceptori sunt în total într-un ochi uman?",
+      "answers": ["50 milioane", "130 milioane", "200 milioane", "500 milioane"],
+      "correctAnswer": 1,
+      "explanation": "Un ochi uman conține aproximativ 130 milioane de fotoreceptori - 120 milioane bastonașe și 6 milioane conuri."
+    }
+  ]
+}

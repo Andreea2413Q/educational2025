@@ -1,0 +1,72 @@
+{
+  "id": "psihologia-culorilor",
+  "title": "Psihologia Culorilor",
+  "description": "Descoperă fascinanta știință din spatele impactului culorilor asupra minții umane și comportamentului",
+  "category": "Psihologie",
+  "difficulty": "Avansat",
+  "timeLimit": 720,
+  "icon": "𖡎",
+  "color": "from-pink-500 to-purple-500",
+  "questions": [
+    {
+      "question": "Ce procent din motivele de cumpărare sunt influențate de culoare?",
+      "answers": ["65%", "75%", "85%", "95%"],
+      "correctAnswer": 2,
+      "explanation": "Studiile arată că 85% din motivele de cumpărare sunt influențate de culoare, demonstrând importanta majoră a culorii în deciziile consumatorilor."
+    },
+    {
+      "question": "Care culoare accelerează pulsul și crește tensiunea arterială?",
+      "answers": ["Albastru", "Verde", "Roșu", "Galben"],
+      "correctAnswer": 2,
+      "explanation": "Roșul accelerează pulsul și crește tensiunea arterială, stimulând acțiunea și creând o senzație de urgență."
+    },
+    {
+      "question": "Care culoare este cea mai odihnitor pentru ochi?",
+      "answers": ["Albastru",  "Violet","Verde", "Portocaliu"],
+      "correctAnswer": 2,
+      "explanation": "Verdele este cel mai odihnitor pentru ochi, reduce oboseala vizuală și stresul, îmbunătățind concentrarea."
+    },
+    {
+      "question": "În care parte a creierului sunt procesate emoțiile legate de culori?",
+      "answers": ["Cortexul vizual", "Sistemul limbic", "Cerebelul", "Lobul frontal"],
+      "correctAnswer": 1,
+      "explanation": "Informația despre culori este transmisă către sistemul limbic, zona creierului responsabilă pentru emoții, după procesarea în cortexul vizual."
+    },
+    {
+      "question": "Ce simbolizează culoarea albă în cultura asiatică?",
+      "answers": ["Inocență și puritate",  "Noroc și prosperitate", "Pace și spiritualitate", "Moarte și doliu"],
+      "correctAnswer": 3,
+      "explanation": "În Asia (China, Japonia), culoarea albă simbolizează moarte și doliu, spre deosebire de Occident unde reprezintă inocența și puritatea."
+    },
+    {
+      "question": "Care culoare este cea mai eficientă pentru call-to-action (CTA) buttons?",
+      "answers": ["Portocaliu","Roșu", "Verde",  "Albastru"],
+      "correctAnswer": 0,
+      "explanation": "Portocaliul este cel mai eficient pentru CTA, având o conversie cu 32% mai mare decât alte culori, fiind prietenos și fără amenințare."
+    },
+    {
+      "question": "Ce efect are culoarea albastră asupra apetitului?",
+      "answers": ["Îl mărește considerabil", "Nu are niciun efect", "Îl reduce", "Îl face mai selectiv"],
+      "correctAnswer": 2,
+      "explanation": "Culoarea albastră poate reduce apetitul și crea senzația de răceală, fiind o culoare care nu stimulează consumul de alimente."
+    },
+    {
+      "question": "Care combinație de culori este folosită de brandurile de fast-food pentru a mări apetitul?",
+      "answers": ["Albastru și verde", "Roșu și galben", "Violet și portocaliu", "Verde și albastru"],
+      "correctAnswer": 1,
+      "explanation": "Roșu și galben sunt folosite de brandurile de fast-food (McDonald's, KFC) pentru că măresc apetitul și stimulează cumpărăturile impulsive."
+    },
+    {
+      "question": "Ce procent din evaluarea unui produs se bazează pe culoare?",
+      "answers": ["45-60%", "50-75%", "62-90%", "70-95%"],
+      "correctAnswer": 2,
+      "explanation": "62-90% din evaluarea unui produs se bazează pe culoare, demonstrând impactul masiv al culorii asupra percepției consumatorilor."
+    },
+    {
+      "question": "În cromoterapie, ce culoare se folosește pentru tratamentul depresiei sezoniere?",
+      "answers": ["Roșu", "Verde", "Albastru", "Galben"],
+      "correctAnswer": 2,
+      "explanation": "Lumina albastră este folosită în tratamentul depresiei sezoniere (SAD) și pentru reglarea ritmului circadian în cromoterapie."
+    }
+  ]
+}

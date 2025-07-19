@@ -1,0 +1,117 @@
+{
+  "id": "simboluri-culori-intermediar",
+  "title": "Biblioteca de Simboluri",
+  "description": "Explorează semnificațiile profunde și contextul cultural al culorilor. De la psihologia percepției la tradițiile ancestrale și evoluția simbolismului în era digitală",
+  "category": "Design",
+  "difficulty": "Intermediar",
+  "timeLimit": 700,
+  "icon": "愛",
+  "color": "from-blue-600 to-green-500",
+  "questions": [
+    {
+      "question": "Ce semnificație are roșul în cultura chineză?",
+      "answers": ["Pericol", "Noroc", "Moarte", "Tristețe"],
+      "correctAnswer": 1,
+      "explanation": "În cultura chineză, roșul simbolizează norocul și prosperitatea, fiind folosit în sărbători și ceremonies importante."
+    },
+    {
+      "question": "De ce albastrul era asociat cu divinitatea în culturile antice?",
+      "answers": [
+  
+        "Pentru că cerul și oceanul sunt albastre",
+        "Pentru că avea proprietăți magice",
+        "Pentru că era o culoare rară",
+        "Pentru că era culoarea nobilimii"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Albastrul se asociază cu divinitatea pentru că cerul și oceanul - manifestări ale infinitului - sunt albastre."
+    },
+    {
+      "question": "În cât timp procesează creierul asocierile unei culori?",
+      "answers": [ "100 de milisecunde", "50 de milisecunde", "200 de milisecunde", "500 de milisecunde"],
+      "correctAnswer": 2,
+      "explanation": "Creierul procesează asocierile unei culori în mai puțin de 100 de milisecunde, mult înainte ca mintea conștientă să analizeze situația."
+    },
+    {
+      "question": "Ce simbolizează negrul în cultura africană tradițională?",
+      "answers": ["Moartea", "Maturitatea", "Răul", "Tristețea"],
+      "correctAnswer": 1,
+      "explanation": "În cultura africană tradițională, negrul simbolizează maturitatea și înțelepciunea, nu moartea ca în culturile occidentale."
+    },
+    {
+      "question": "Care este semnificația verde-lui în feng shui?",
+      "answers": [ "Armonia", "Sănătatea", "Norocul","Bogăția"],
+      "correctAnswer": 4,
+      "explanation": "În feng shui, verdele jade simbolizează armonia și echilibrul, fiind considerat o culoare care aduce pace interioară."
+    },
+    {
+      "question": "De ce roșul era asociat cu puterea în antichitate?",
+      "answers": [
+        "Pentru că era culoarea sângelui",
+        "Pentru că pigmenții roșii erau rari și scumpi",
+        "Pentru că era culoarea focului",
+        "Toate variantele de mai sus"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Roșul simboliza puterea din multiple motive: culoarea sângelui și focului, plus raritatea și costul pigmenților roșii în antichitate."
+    },
+    {
+      "question": "Ce hormon declanșează galbenul în creier?",
+      "answers": ["Dopamina", "Serotonina", "Endorfinele", "Oxitocina"],
+      "correctAnswer": 1,
+      "explanation": "Galbenul declanșează producția de serotonină pentru că creierul îl asociază cu lumina soarelui, hormonul fericirii."
+    },
+    {
+      "question": "În ce cultură violet-ul murex simboliza puterea supremă?",
+      "answers": ["Grecia antică", "Egiptul antic", "Roma antică", "Imperiul bizantin"],
+      "correctAnswer": 2,
+      "explanation": "În Roma antică, violetul murex era rezervat împăraților, simbolizând puterea supremă datorită rarității și costului enormului său."
+    },
+    {
+      "question": "Ce semnificație are albul în culturile asiatice?",
+      "answers": [ "Doliul", "Norocul","Căsătoria", "Puritatea"],
+      "correctAnswer": 3,
+      "explanation": "În multe culturi asiatice, albul este asociat cu doliul și moartea, spre deosebire de culturile occidentale unde simbolizează căsătoria."
+    },
+    {
+      "question": "Cum se numește fenomenul prin care brandurile creează asocieri standardizate?",
+      "answers": ["Simbolism local", "Globalizarea simbolurilor", "Tradiționalismul cromatic", "Culturalismul vizual"],
+      "correctAnswer": 1,
+      "explanation": "Globalizarea simbolurilor este procesul prin care brandurile multinaționale promovează asocieri standardizate ale culorilor la nivel mondial."
+    },
+    {
+      "question": "Ce reprezintă șofranul în religiile orientale?",
+      "answers": [ "Spiritualitatea și renunțarea", "Bogăția", "Protecția", "Puterea"],
+      "correctAnswer": 4,
+      "explanation": "Șofranul reprezintă spiritualitatea și renunțarea în hinduism și buddhism, fiind culoarea robelor călugărilor."
+    },
+    {
+      "question": "De ce verdele se asociază cu viața și natura?",
+      "answers": [
+        "Pentru că este culoarea vegetației",
+        "Pentru că asigură supraviețuirea",
+        "Pentru că reflectă legătura cu lumea înconjurătoare",
+        "Toate variantele de mai sus"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Verdele se asociază cu viața pentru că este culoarea vegetației care asigură supraviețuirea și reflectă legături profunde cu natura."
+    },
+    {
+      "question": "Cum a evoluat simbolismul negrului de-a lungul istoriei?",
+      "answers": [
+        "De la fertilitate la doliu, apoi la eleganță",
+        "De la moarte la putere, apoi la mister",
+        "De la rău la neutralitate, apoi la lux",
+        "A rămas constant în toate culturile"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Negrul a evoluat de la simbolizarea fertilității (Egiptul antic) la doliu (Europa medievală) și apoi la eleganță și putere (epoca modernă)."
+    },
+    {
+      "question": "Ce culer digitală devine simbolul tehnologiei în era modernă?",
+      "answers": ["Verde Matrix (#00FF00)", "Albastru electric", "Cyan digital", "Violet neon"],
+      "correctAnswer": 2,
+      "explanation": "Verde Matrix (#00FF00) devine simbolul tehnologiei în era digitală, fiind asociat cu interfețele digitale și lumea virtuală."
+    }
+  ]
+}

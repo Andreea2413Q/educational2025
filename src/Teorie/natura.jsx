@@ -209,41 +209,12 @@ export default function ColorsInNaturePresentation() {
     }
   ];
 
-  const navigationItems = [
-    { id: 'intro', title: 'Introducere', icon: '🌿' },
-    { id: 'seasons', title: 'Anotimpurile', icon: '🌸' },
-    { id: 'ecosystems', title: 'Ecosisteme', icon: '🌊' },
-    { id: 'adaptation', title: 'Adaptare', icon: '🦋' },
-    { id: 'inspiration', title: 'Inspirație Design', icon: '🎨' }
-  ];
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900">
-      {/* Navigare fixă */}
-       <nav className="fixed top-20 left-8 z-40 hidden lg:block w-[15%]">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/20">
-          <h3 className="text-white font-semibold mb-4 text-center">Navigare</h3>
-          <div className="space-y-2">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
-                  activeSection === item.id
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                <span>{item.icon}</span>
-                <span className="text-sm">{item.title}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
+    
 
- {/* Header */}
-      <div className="w-[100%] lg:w-[80%] lg:ml-[18%] px-4">
+      <div className="w-[100%]  px-4">
        
         <div className="pt-20 pb-16 px-8">
           <div className="max-w-4xl mx-auto text-center">
@@ -252,15 +223,9 @@ export default function ColorsInNaturePresentation() {
                 onClick={() => navigate('/teorie')}
                 className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
               >
-                ← Înapoi la Teorie
+                 Înapoi la Teorie
               </button>
-              <button 
-                onClick={() => setShowHelp(true)}
-                className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
-                title="Ghid de navigare"
-              >
-                ?
-              </button>
+           
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
@@ -274,7 +239,7 @@ export default function ColorsInNaturePresentation() {
         </div>
 
         <div className="max-w-6xl mx-auto px-8 pb-20">
-          {/* Introducere */}
+         
           <section id="intro" className="mb-20">
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
               <h2 className="text-4xl font-bold text-white mb-6">🌱 Natura: Maestrul Designului</h2>
@@ -343,7 +308,7 @@ export default function ColorsInNaturePresentation() {
             </div>
           </section>
 
-          {/* Anotimpuri */}
+   
           <section id="seasons" className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">🌸 Paletele Anotimpurilor</h2>
@@ -390,7 +355,7 @@ export default function ColorsInNaturePresentation() {
             </div>
           </section>
 
-          {/* Ecosisteme */}
+    
           <section id="ecosystems" className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">🌊 Ecosisteme și Paletele Lor</h2>
@@ -435,7 +400,7 @@ export default function ColorsInNaturePresentation() {
             </div>
           </section>
 
-          {/* Adaptare */}
+   
           <section id="adaptation" className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">🦋 Adaptarea Cromatică</h2>
@@ -478,7 +443,7 @@ export default function ColorsInNaturePresentation() {
             </div>
           </section>
 
-          {/* Inspirație Design */}
+       
           <section id="inspiration" className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">🎨 Inspirație pentru Design</h2>
@@ -514,7 +479,6 @@ export default function ColorsInNaturePresentation() {
             </div>
           </section>
 
-          {/* Concluzie */}
           <section className="text-center">
             <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
               <h3 className="text-2xl font-bold text-white mb-4">🌿 Natura ca Mentor</h3>
@@ -550,70 +514,7 @@ export default function ColorsInNaturePresentation() {
           </section>
         </div>
 
-        {/* Modal Help */}
-        {showHelp && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-              <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-gray-800">🌿 Ghid Culorile în Natură</h2>
-                <button 
-                  onClick={() => setShowHelp(false)}
-                  className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
-                >
-                  ×
-                </button>
-              </div>
-
-              <div className="p-6 space-y-6">
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">🎯 Obiectivul Prezentării</h3>
-                  <p className="text-gray-600">
-                    Această prezentare te învață să observi și să aplici lecțiile cromatice 
-                    din natură în proiectele tale de design.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">🧭 Structura Explorării</h3>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• <strong>Introducere</strong>: De ce natura este cel mai bun mentor</li>
-                    <li>• <strong>Anotimpuri</strong>: Paletele sezoniere și emoțiile lor</li>
-                    <li>• <strong>Ecosisteme</strong>: Combinațiile specifice fiecărui mediu</li>
-                    <li>• <strong>Adaptare</strong>: Cum animalele folosesc culoarea</li>
-                    <li>• <strong>Inspirație</strong>: Aplicarea practică în design</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">⚡ Tehnici de Observare</h3>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Fotografiază paleta unui anotimp</li>
-                    <li>• Observă gradientele din natură</li>
-                    <li>• Analizează contrastele și armoniile</li>
-                    <li>• Extrage culorile dominante și accentele</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">🎯 După Prezentare</h3>
-                  <p className="text-gray-600">
-                    Vei putea să identifici și să recreezi orice paletă naturală, 
-                    înțelegând de ce anumite combinații funcționează perfect.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-6 border-t border-gray-200 text-center">
-                <button 
-                  onClick={() => setShowHelp(false)}
-                  className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-emerald-700 hover:to-teal-700 transition-colors"
-                >
-                  Să explorez natura! 🌿
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+       
       </div>
     </div>
   );

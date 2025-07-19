@@ -1,0 +1,84 @@
+{
+  "id": "culori-natura-usor",
+  "title": "Culorile în Natură",
+  "description": "Explorează paleta infinită a naturii și învață de la cele mai spectaculoase combinații cromatice create de-a lungul milioanelor de ani",
+  "category": "Design",
+  "difficulty": "Ușor",
+  "timeLimit": 480,
+  "icon": "🍃",
+  "color": "from-purple-500 to-pink-500",
+  "questions": [
+    {
+      "question": "Câți ani de evoluție cromatică are natura?",
+      "answers": ["4 miliarde ani", "2 milioane ani", "500 milioane ani", "1 miliard ani"],
+      "correctAnswer": 0,
+      "explanation": "Natura are 4 miliarde de ani de evoluție cromatică, creând paleta cea mai bogată și diversă."
+    },
+    {
+      "question": "Ce culoare caracterizează mugurii de primăvară?",
+      "answers": ["Roșu intens", "Verde tânăr", "Galben auriu", "Maro închis"],
+      "correctAnswer": 1,
+      "explanation": "Verde tânăr caracterizează mugurii și frunzele tinere de primăvară, simbolizând renașterea și prospețimea."
+    },
+    {
+      "question": "Ce flori caracterizează paleta de primăvară?",
+      "answers": ["Maci roșii", "Lavandă", "Cireș japonez roz", "Floarea soarelui"],
+      "correctAnswer": 2,
+      "explanation": "Florile de cireș japonez roz sunt emblematice pentru primăvară, reprezentând optimismul și începutul nou."
+    },
+    {
+      "question": "Care este culoarea dominantă în ecosisteme de pădure?",
+      "answers": ["Albastru", "Roșu", "Galben", "Verde"],
+      "correctAnswer": 3,
+      "explanation": "Verdele este culoarea dominantă în păduri, cu o gamă largă de nuanțe complementate de accentele calde de maro."
+    },
+    {
+      "question": "Ce culoare simbolizează vara în natură?",
+      "answers": ["Verde intens", "Gri argintiu", "Violet liliac", "Maro bronz"],
+      "correctAnswer": 0,
+      "explanation": "Verde intens simbolizează vara prin frunzișul bogat, reprezentând energia maximă și vitalitatea."
+    },
+    {
+      "question": "Frunzele de arțar de toamnă sunt:",
+      "answers": ["Albastru glacial", "Portocaliu ardent", "Verde tânăr", "Alb pristină"],
+      "correctAnswer": 1,
+      "explanation": "Frunzele de arțar de toamnă sunt portocaliu ardent, caracterizând atmosfera de căldură și transformare."
+    },
+    {
+      "question": "Ce procent din designurile naturale sunt funcționale?",
+      "answers": ["75%", "85%", "99%", "90%"],
+      "correctAnswer": 2,
+      "explanation": "99% din designurile naturale sunt funcționale, fiecare culoare având un scop clar de supraviețuire."
+    },
+    {
+      "question": "Păunul folosește culorile pentru:",
+      "answers": ["Atragerea partenerului", "Camuflaj", "Avertizare toxicitate", "Termoregulare"],
+      "correctAnswer": 0,
+      "explanation": "Păunul folosește culorile iridescente pentru atragerea partenerului și intimidarea rivalilor prin display spectaculos."
+    },
+    {
+      "question": "Cameleонul schimbă culoarea pentru:",
+      "answers": ["Amuzament", "Camuflaj și comunicare", "Termoregulare", "Atragerea hranei"],
+      "correctAnswer": 1,
+      "explanation": "Cameleонul schimbă culoarea pentru camuflaj și comunicare socială, fiind un exemplu de adaptare cromatică."
+    },
+    {
+      "question": "Fluturele Morpho are aripi de culoare:",
+      "answers": ["Verde smarald", "Albastru electric", "Roșu intens", "Galben solar"],
+      "correctAnswer": 1,
+      "explanation": "Fluturele Morpho are aripi albastru electric prin iridescență structurală, confuzând prădătorii."
+    },
+    {
+      "question": "Deșertul este caracterizat de culori:",
+      "answers": ["Reci și umede", "Albastre și verzi", "Calde și pământii", "Pasteluri pale"],
+      "correctAnswer": 2,
+      "explanation": "Deșertul are tonuri calde și pământii cu accente de verde, simbolizând reziliența și adaptarea."
+    },
+    {
+      "question": "Aurora Boreală inspiră palete cu:",
+      "answers": ["Verde fosfor", "Maro pământ", "Roșu mac", "Galben narcisă"],
+      "correctAnswer": 0,
+      "explanation": "Aurora Boreală inspiră palete cu verde fosfor, violet cosmic și albastru cosmic pentru designuri futuriste."
+    }
+  ]
+}

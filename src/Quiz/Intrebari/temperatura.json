@@ -1,0 +1,90 @@
+{
+  "id": "temperatura-culori-usor",
+  "title": "Temperatura Culorilor",
+  "description": "Descoperă diferența dintre culorile calde și reci și impactul lor asupra stării de spirit. Perfect pentru începători care vor să înțeleagă bazele temperaturii cromatice",
+  "category": "Design",
+  "difficulty": "Ușor",
+  "timeLimit": 520,
+  "icon": "🌡",
+  "color": "from-blue-600 to-green-500",
+  "questions": [
+    {
+      "question": "Temperatura culorilor se măsoară în:",
+      "answers": ["Grade Celsius", "Grade Fahrenheit", "Grade Kelvin", "Procente"],
+      "correctAnswer": 2,
+      "explanation": "Temperatura culorilor se măsoară în grade Kelvin (K), o unitate care ne ajută să înțelegem proprietățile termice ale luminii."
+    },
+    {
+      "question": "Care dintre acestea este o culoare caldă?",
+      "answers": ["Albastru", "Verde", "Violet", "Portocaliu"],
+      "correctAnswer": 3,
+      "explanation": "Portocaliul este o culoare caldă, alături de roșu și galben, care transmit senzația de căldură și confort."
+    },
+    {
+      "question": "Culorile calde au lungimi de undă:",
+      "answers": ["Foarte scurte", "Scurte", "Mari", "Variabile"],
+      "correctAnswer": 2,
+      "explanation": "Culorile calde (roșu, portocaliu, galben) au lungimi de undă mai mari, între 620-700nm."
+    },
+    {
+      "question": "În ce interval se află culorile calde pe scala Kelvin?",
+      "answers": ["1000K - 3500K", "3500K - 5000K", "5000K - 10000K", "peste 10000K"],
+      "correctAnswer": 0,
+      "explanation": "Culorile calde se situează între 1000K și 3500K, fiind asociate cu relaxarea și intimitatea."
+    },
+    {
+      "question": "Ce hormon stimulează culorile calde seara?",
+      "answers": ["Cortizolul", "Adrenalina", "Melatonina", "Insulina"],
+      "correctAnswer": 2,
+      "explanation": "Culorile calde stimulează producția de melatonină seara, pregătind corpul pentru somn."
+    },
+    {
+      "question": "Culorile reci sunt asociate cu:",
+      "answers": ["Relaxarea", "Somnul", "Romantismul ", "Productivitatea"],
+      "correctAnswer": 3,
+      "explanation": "Culorile reci sunt asociate cu productivitatea, alertețea și focalizarea mentală."
+    },
+    {
+      "question": "Ce temperatură are lumina lumânării?",
+      "answers": ["1900K", "3200K", "5500K", "7000K"],
+      "correctAnswer": 0,
+      "explanation": "Flacăra lumânării are o temperatură de aproximativ 1900K, fiind foarte caldă și relaxantă."
+    },
+    {
+      "question": "Culorile neutre se situează între:",
+      "answers": ["1000K - 3500K", "3500K - 5000K", "5000K - 10000K", "2000K - 4000K"],
+      "correctAnswer": 1,
+      "explanation": "Culorile neutre se situează între 3500K și 5000K, oferind echilibru și versatilitate."
+    },
+    {
+      "question": "În ce spații sunt recomandate culorile calde?",
+      "answers": ["Birouri", "Laboratoare",  "Spitale", "Restaurante romantice"],
+      "correctAnswer": 3,
+      "explanation": "Culorile calde sunt perfecte pentru restaurante romantice, dormitoare și living-uri familiare."
+    },
+    {
+      "question": "Ce efect au culorile reci asupra tensiunii arteriale?",
+      "answers": ["O scad", "O cresc", "Nu o afectează", "O stabilizează"],
+      "correctAnswer": 1,
+      "explanation": "Culorile reci cresc tensiunea arterială și stimulează sistemul nervos, menținând starea de alertă."
+    },
+    {
+      "question": "Cu cât procent diferă suprimarea melatoninei între lumina caldă și rece?",
+      "answers": ["10%", "15%", "23%", "30%"],
+      "correctAnswer": 2,
+      "explanation": "Există o diferență de 23% în suprimarea melatoninei între lumina caldă și cea rece."
+    },
+    {
+      "question": "Lumina zilei naturală are aproximativ:",
+      "answers": ["3000K", "4000K", "5500K", "7000K"],
+      "correctAnswer": 2,
+      "explanation": "Lumina zilei naturală are aproximativ 5500K, fiind folosită ca standard în fotografie și design."
+    },
+    {
+      "question": "Care este principalul avantaj al culorilor neutre?",
+      "answers": ["Oferă echilibru","Energizează", "Relaxează complet",  "Stimulează apetitul"],
+      "correctAnswer": 0,
+      "explanation": "Culorile neutre oferă echilibru, versatilitate maximă și reduc oboseala vizuală fără să perturbe ritmurile circadiene."
+    }
+  ]
+}

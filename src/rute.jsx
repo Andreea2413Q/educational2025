@@ -18,7 +18,6 @@ import Contrast from "./Teorie/contrast";
 import Quiz from "./Quiz/quiz";
 
 import Cont from "./Cont/cont";
-import Setari from "./Setari/setari";
 import Note from "./Note/note";
 
 import Joc from "./Joc/joc";
@@ -26,11 +25,13 @@ import Wolearn from "./Joc/wolearn";
 import Rgb from "./Joc/rgb";
 import ColorCircle from "./Joc/color-circle";
 import MemoryGame from "./Joc/memori-game";
-import HarmonyDedective from './Joc/harmony-dedective'
+
 
 import Contact from "./Contact/Contact";
 
 import { AuthProvider } from "./Cont/authContext";
+
+import Ai from './AI/ai'
 
 function App() {
   return (
@@ -59,14 +60,15 @@ function App() {
           <Route path="/joc" element={<Joc />} />
           <Route path="/joc/wolearn" element={<Wolearn />} />
           <Route path="joc/rgb" element={<Rgb />} />
-           <Route path="/joc/harmony-dedective" element={<HarmonyDedective />} />
           <Route path="/joc/color-circle" element={<ColorCircle />} />
           <Route path="/joc/memory-game" element={<MemoryGame />} />
 
           <Route path="/note" element={<Note />} />
           <Route path="/cont" element={<Cont />} />
-          <Route path="/setari" element={<Setari />} />
           <Route path="/contact" element={<Contact />} />
+           <Route path="/ai" element={<Ai />} />
+
+
         </Routes>
       </AuthProvider>
     </Router>
