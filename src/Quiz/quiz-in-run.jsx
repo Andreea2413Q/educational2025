@@ -49,7 +49,7 @@ const QuizHeader = ({ currentQuiz, currentQuestion, timeLeft, onClose }) => {
           <button
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 text-2xl"
-            title="Înapoi la quiz-uri"
+            title="Înapoi la quizz-uri"
           >
             ✕
           </button>
@@ -78,7 +78,7 @@ const QuizHeader = ({ currentQuiz, currentQuestion, timeLeft, onClose }) => {
       {timeLeft <= 60 && timeLeft > 0 && (
         <div className="mt-3 p-2 bg-red-100 border border-red-200 rounded-lg">
           <p className="text-red-700 text-sm font-medium text-center">
-            ⚠️ Timpul se apropie de sfârșit! Mai ai {timeLeft} secunde!
+            ⏳ Timpul se apropie de sfârșit! Mai ai {timeLeft} secunde! 
           </p>
         </div>
       )}

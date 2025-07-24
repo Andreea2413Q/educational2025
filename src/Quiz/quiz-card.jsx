@@ -9,8 +9,8 @@ const QuizCard = ({ quiz, quizProgress, onStartQuiz }) => {
   const getDifficultyColor = (difficulty) => {
     switch (difficulty?.toLowerCase()) {
       case 'ușor': return 'bg-gray-700 text-green-800';
-      case 'intermediar': return 'bg-gray-700 text-yellow-800';
-      case 'avansat': return 'bg-gray-700 text-red-800';
+      case 'mediu': return 'bg-gray-700 text-yellow-800';
+      case 'greu': return 'bg-gray-700 text-red-800';
       default: return 'bg-gray-700 text-red-800';
     }
   };
@@ -107,7 +107,7 @@ const QuizCard = ({ quiz, quizProgress, onStartQuiz }) => {
       <div className={`bg-gradient-to-r ${quiz.color || 'from-purple-500 to-pink-500'} h-1/2 p-6 rounded-t-2xl text-yellow-300 text-center relative`}>
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center space-x-3">
-            <div className="text-3xl">{quiz.icon || '🎯'}</div>
+            <div className="text-3xl">{quiz.icon || '🌍'}</div>
           </div>
           <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(quiz.difficulty)} bg-white bg-opacity-20 text-white`}>
             {quiz.difficulty || 'Mediu'}
@@ -138,7 +138,7 @@ const QuizCard = ({ quiz, quizProgress, onStartQuiz }) => {
             <span className="font-medium text-black">{quiz.questions?.length || 0}</span> întrebări
           </div>
           <div className={`bg-gradient-to-r ${quiz.color || 'from-purple-500 to-pink-500'} text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity`}>
-            {(quizProgress && quizProgress[quiz.id]?.completed) ? 'Reluează Quiz-ul' : 'Începe Quiz-ul'} →
+            {(quizProgress && quizProgress[quiz.id]?.completed) ? 'Repetă quizz-ul' : 'Începe Quiz-ul'} →
           </div>
         </div>
       </div>

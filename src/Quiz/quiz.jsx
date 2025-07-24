@@ -273,7 +273,7 @@ const QuizApp = () => {
   if (loading) {
     return (
       <div className="relative min-h-screen">
-        <div className="fixed top-0 left-0 w-full h-full min-h-screen overflow-hidden z-0">
+        <div className=" top-0 left-0 w-full h-full min-h-screen overflow-hidden z-0">
           <Iridescence
             color={[1, 1, 1]}
             mouseReact={false}

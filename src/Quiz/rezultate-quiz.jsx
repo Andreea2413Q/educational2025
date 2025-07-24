@@ -18,9 +18,9 @@ const QuizResults = ({
   
   const getScoreMessage = (percentage) => {
     if (percentage >= 90) return { message: "Excelent! Performanță de top! 🏆", color: "text-green-600" };
-    if (percentage >= 70) return { message: "Foarte bine! Cunoști subiectul! 👏", color: "text-blue-600" };
+    if (percentage >= 70) return { message: "Foarte bine! 👏", color: "text-blue-600" };
     if (percentage >= 50) return { message: "Bine, dar mai poți învăța! 👍", color: "text-yellow-600" };
-    return { message: "Mai exercitează! 📚", color: "text-red-600" };
+    return { message: "Mai exersează! 📚", color: "text-red-600" };
   };
 
   const formatDate = (timestamp) => {

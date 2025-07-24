@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getFirestore, doc, setDoc, deleteDoc, collection, onSnapshot } from 'firebase/firestore';
 import { useAuth } from '../Cont/authContext';
-import NotesHelp from './help';
+import Help from './help';
 
 const db = getFirestore();
 
@@ -377,7 +377,7 @@ const NotesApp = () => {
         )}
 
         {showHelp && (
-          <NotesHelp showHelp={showHelp} setShowHelp={setShowHelp} />
+          <Help showHelp={showHelp} setShowHelp={setShowHelp} />
         )}
       </div>
 
