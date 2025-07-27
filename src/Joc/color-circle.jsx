@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 import { useAuth } from '../Cont/authContext';
-
-const db = getFirestore();
 
 export default function App() {
   const { currentUser } = useAuth();
 
+  const [timeLeft, setTimeLeft] = useState(15);
   const [circleCount, setCircleCount] = useState(12);
-  const [circles, setCircles] = useState([]);
-  const [time, setTime] = useState(15);
-  const [timerActive, setTimerActive] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(time);
-  const [score, setScore] = useState(0);
-  const [challengeColor, setChallengeColor] = useState('');
   const [bestScore, setBestScore] = useState(0);
+  const [circles, setCircles] = useState([]);
+  const [timerActive, setTimerActive] = useState(false);
+  const [challengeColor, setChallengeColor] = useState('');
+  const [time, setTime] = useState(15);
+  const [showHelp, setShowHelp] = useState(false);
+  const [score, setScore] = useState(0);
 
   const getRandomColor = () => {
     const colors = ['blue', 'red', 'purple', 'yellow', 'green', 'pink', 'black'];
@@ -97,31 +95,133 @@ export default function App() {
 
   useEffect(() => {
     if (!currentUser) {
-      setBestScore(0);
+      const localBestScore = localStorage.getItem('colorCircleBestScore');
+      if (localBestScore) {
+        setBestScore(parseInt(localBestScore));
+      }
       return;
     }
 
-    const bestScoreDocRef = doc(db, 'color-circle-bestScores', currentUser.uid);
-
-    getDoc(bestScoreDocRef).then((docSnap) => {
-      if (docSnap.exists()) {
-        setBestScore(docSnap.data().score || 0);
-      } else {
-        setBestScore(0);
-      }
-    }).catch(console.error);
+    const userBestScore = localStorage.getItem(`colorCircleBestScore_${currentUser.uid}`);
+    if (userBestScore) {
+      setBestScore(parseInt(userBestScore));
+    }
   }, [currentUser]);
 
   useEffect(() => {
-    if (!currentUser) return;
     if (score > bestScore) {
       setBestScore(score);
-
-      const bestScoreDocRef = doc(db, 'color-circle-bestScores', currentUser.uid);
-
-      setDoc(bestScoreDocRef, { score }, { merge: true }).catch(console.error);
+      
+      if (currentUser) {
+        localStorage.setItem(`colorCircleBestScore_${currentUser.uid}`, score.toString());
+      } else {
+        localStorage.setItem('colorCircleBestScore', score.toString());
+      }
     }
-  }, [score]);
+  }, [score, bestScore, currentUser]);
+
+  const HelpModal = () => (
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-900/90 backdrop-blur-lg border border-cyan-400/50 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-gray-900/95 backdrop-blur-lg p-6 flex items-center justify-between rounded-t-2xl border-b border-cyan-400/30">
+          <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            Cum să joci Color Circle Game
+          </h2>
+          <button 
+            onClick={() => setShowHelp(false)}
+            className="text-cyan-400 hover:text-pink-400 text-3xl font-bold leading-none transition-colors duration-300 w-8 h-8 flex items-center justify-center"
+            title="Închide"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="p-6 space-y-6">
+          <div className="bg-gradient-to-br from-cyan-900/20 via-purple-900/20 to-pink-900/20 p-1 rounded-xl border border-cyan-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+                🎯 Obiectivul Jocului
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p><label className="text-pink-400 font-bold">Scopul:</label> Găsește și click pe cercurile care au aceeași culoare cu cea afișată</p>
+                <p><label className="text-pink-400 font-bold">Timp limitat:</label> Ai la dispoziție timpul setat (15/30/60 secunde)</p>
+                <p><label className="text-pink-400 font-bold">Punctaj:</label> +1 punct pentru răspuns corect, -1 pentru greșeală</p>
+                <p><label className="text-pink-400 font-bold">Provocare:</label> Fiecare click corect generează o nouă culoare de găsit</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-green-900/20 via-blue-900/20 to-purple-900/20 p-1 rounded-xl border border-blue-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-blue-400 mb-4 flex items-center gap-2">
+                🎮 Cum să Joci
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p><label className="text-cyan-400 font-bold">Pasul 1:</label> Alege numărul de cercuri și timpul de joc</p>
+                <p><label className="text-cyan-400 font-bold">Pasul 2:</label> Apasă "Start" pentru a începe jocul</p>
+                <p><label className="text-cyan-400 font-bold">Pasul 3:</label> Privește culoarea afișată în caseta de referință</p>
+                <p><label className="text-cyan-400 font-bold">Pasul 4:</label> Click rapid pe cercurile cu aceeași culoare</p>
+                <p><label className="text-cyan-400 font-bold">Pasul 5:</label> Continuă până se termină timpul</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-red-900/20 p-1 rounded-xl border border-purple-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-purple-400 mb-4 flex items-center gap-2">
+                ⚙️ Setări de Dificultate
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p><label className="text-green-400 font-bold">12 cercuri:</label> Nivel ușor - Perfect pentru începători</p>
+                <p><label className="text-yellow-400 font-bold">24 cercuri:</label> Nivel mediu - Provocare echilibrată</p>
+                <p><label className="text-red-400 font-bold">36 cercuri:</label> Nivel greu - Pentru experți în viteză</p>
+                <p><label className="text-pink-400 font-bold">Timp:</label> 15s (rapid), 30s (echilibrat), 60s (relaxat)</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-yellow-900/20 via-orange-900/20 to-red-900/20 p-1 rounded-xl border border-yellow-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                📊 Sistemul de Punctaj
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p><label className="text-orange-400 font-bold">Click corect:</label> +1 punct și nouă culoare de găsit</p>
+                <p><label className="text-orange-400 font-bold">Click greșit:</label> -1 punct (minimul este 0)</p>
+                <p><label className="text-orange-400 font-bold">Cel mai bun scor:</label> Se salvează automat recordul personal</p>
+                <p><label className="text-orange-400 font-bold">Progres continuu:</label> Culorile se schimbă constant pentru provocare</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-pink-900/20 via-purple-900/20 to-cyan-900/20 p-1 rounded-xl border border-pink-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-pink-400 mb-4 flex items-center gap-2">
+                💡 Strategii și Sfaturi
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p>Concentrează-te pe culoarea de referință înainte de a căuta</p>
+                <p>Scanează rapid întreaga grilă pentru a identifica toate cercurile</p>
+                <p>Evită click-urile în grabă - o greșeală îți scade punctajul</p>
+                <p>Începe cu puține cercuri și timp mai lung pentru antrenament</p>
+                <p>Dezvoltă un pattern de căutare (de la stânga la dreapta)</p>
+                <p>Practică zilnic pentru îmbunătățirea vitezei de reacție</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="sticky bottom-0 bg-gray-900/95 backdrop-blur-lg p-6 text-center border-t border-cyan-400/30 rounded-b-2xl">
+          <button 
+            onClick={() => setShowHelp(false)}
+            className="bg-gradient-to-r from-cyan-600 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-cyan-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+          >
+            Am înțeles! 🚀
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black relative overflow-hidden">
@@ -134,11 +234,22 @@ export default function App() {
 
       <div className="relative z-10 flex flex-col items-center p-4 sm:p-6 lg:p-8">
         <div className="text-center mb-8">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">
-            Color Circle Game
-          </h1>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+              Color Circle Game
+            </h1>
+            <button
+              onClick={() => setShowHelp(true)}
+              className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-600/20 via-purple-600/20 to-pink-600/20 backdrop-blur-lg border-2 border-cyan-400/50 rounded-full flex items-center justify-center text-cyan-400 hover:text-white hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-600/40 hover:via-purple-600/40 hover:to-pink-600/40 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50 group"
+              title="Ajutor"
+            >
+              <span className="text-sm sm:text-lg font-bold group-hover:animate-pulse">?</span>
+            </button>
+          </div>
           <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50"></div>
         </div>
+
+        {showHelp && <HelpModal />}
 
         {!currentUser && (
           <div className="mb-6 p-4 bg-yellow-900/20 border border-yellow-400/30 rounded-xl backdrop-blur-lg">
@@ -218,13 +329,13 @@ export default function App() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
-          <div className="bg-orange-900/20 border border-orange-400/30 rounded-xl p-4 text-center backdrop-blur-lg">
-            <div className="text-orange-300 font-semibold text-sm mb-1">Scor Actual</div>
-            <div className="text-orange-400 text-xl sm:text-2xl font-bold">{score}</div>
-          </div>
           <div className="bg-yellow-900/20 border border-yellow-400/30 rounded-xl p-4 text-center backdrop-blur-lg">
             <div className="text-yellow-300 font-semibold text-sm mb-1">Cel Mai Bun Scor</div>
             <div className="text-yellow-400 text-xl sm:text-2xl font-bold">{bestScore}</div>
+          </div>
+          <div className="bg-orange-900/20 border border-orange-400/30 rounded-xl p-4 text-center backdrop-blur-lg">
+            <div className="text-orange-300 font-semibold text-sm mb-1">Scor Actual</div>
+            <div className="text-orange-400 text-xl sm:text-2xl font-bold">{score}</div>
           </div>
         </div>
       </div>

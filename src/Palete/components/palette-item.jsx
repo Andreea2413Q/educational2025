@@ -52,23 +52,30 @@ const PaletteItem = ({
             Culori în paleta:
           </h3>
           <div className="flex flex-wrap justify-center gap-2">
-            {displayedPalette.colors.map((color, index) => (
-              <div 
-                key={index} 
-                className="w-12 h-12 sm:w-16 sm:h-16 relative cursor-pointer border-2 border-white/30 hover:border-cyan-400/60 transition-all duration-200 hover:scale-105 rounded-lg" 
-                style={{ backgroundColor: color }}
-                onMouseEnter={() => onColorHover({color, index: `${palette.id}-${index}`})}
-                onMouseLeave={onColorLeave}
-                onClick={() => onCopyColor(color)}
-                title="Click pentru a copia culoarea în clipboard"
-              >
-                {hoveredColor && hoveredColor.index === `${palette.id}-${index}` && (
-                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black/80 backdrop-blur-lg text-white text-xs rounded whitespace-nowrap z-10 border border-cyan-400/50">
-                    {formatColorText(color)}
-                  </div>
-                )}
+          
+            {displayedPalette.colors && Array.isArray(displayedPalette.colors) ? (
+              displayedPalette.colors.map((color, index) => (
+                <div 
+                  key={index} 
+                  className="w-12 h-12 sm:w-16 sm:h-16 relative cursor-pointer border-2 border-white/30 hover:border-cyan-400/60 transition-all duration-200 hover:scale-105 rounded-lg" 
+                  style={{ backgroundColor: color }}
+                  onMouseEnter={() => onColorHover({color, index: `${palette.id}-${index}`})}
+                  onMouseLeave={onColorLeave}
+                  onClick={() => onCopyColor(color)}
+                  title="Click pentru a copia culoarea în clipboard"
+                >
+                  {hoveredColor && hoveredColor.index === `${palette.id}-${index}` && (
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black/80 backdrop-blur-lg text-white text-xs rounded whitespace-nowrap z-10 border border-cyan-400/50">
+                      {formatColorText(color)}
+                    </div>
+                  )}
+                </div>
+              ))
+            ) : (
+              <div className="text-gray-400 text-center py-4">
+                Nu există culori în această paletă
               </div>
-            ))}
+            )}
           </div>
         </div>
       )}

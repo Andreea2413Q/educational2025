@@ -4,7 +4,7 @@ const NotesHelp = ({ showHelp, setShowHelp }) => {
       <div className="bg-gray-600 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
       
         <div className="sticky top-0 bg-z3 p-6 flex items-center justify-between rounded-t-2xl">
-          <h2 className="text-3xl font-bold text-black"> Cum folosim Notițele</h2>
+          <h2 className="text-3xl font-bold text-white"> Cum folosim Notițele</h2>
           <button 
             onClick={() => setShowHelp(false)}
             className="text-z4 hover:text-z1 text-4xl font-bold leading-none transition-colors duration-300"

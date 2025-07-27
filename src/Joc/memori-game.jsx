@@ -1,47 +1,48 @@
-import  { useState, useEffect } from 'react';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../Cont/authContext';
-
-const db = getFirestore();
 
 const ColorMemoryGame = () => {
   const { currentUser } = useAuth();
   
-  const [difficulty, setDifficulty] = useState('usor');
-  const [cards, setCards] = useState([]);
-  const [flippedCards, setFlippedCards] = useState([]);
-  const [matchedCards, setMatchedCards] = useState([]);
-  const [moves, setMoves] = useState(0);
-  const [gameStarted, setGameStarted] = useState(false);
+  //
   const [gameWon, setGameWon] = useState(false);
+  const [cards, setCards] = useState([]);
+  const [difficulty, setDifficulty] = useState('usor');
+  const [matchedCards, setMatchedCards] = useState([]);
+  const [showHelp, setShowHelp] = useState(false);
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [moves, setMoves] = useState(0);
   const [bestScores, setBestScores] = useState({
+    greu: null,
     usor: null,
-    mediu: null,
-    greu: null
+    mediu: null
   });
 
+
   const availableColors = [
-    '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FECA57', 
-    '#FF9FF3', '#54A0FF', '#5F27CD', '#00D2D3', '#FF9F43',
-    '#10AC84', '#EE5A24', '#0984E3', '#6C5CE7', '#A29BFE',
-    '#FD79A8', '#E84393', '#00B894', '#00CEC9', '#74B9FF',
-    '#A29BFE', '#FD79A8', '#FDCB6E', '#E17055', '#00B894',
-    '#6C5CE7', '#74B9FF', '#55A3FF', '#FF7675', '#FD79A8'
+    '#FF6B6B', '#4ECDC4', '#96CEB4', '#45B7D1', '#FECA57', 
+    '#54A0FF', '#FF9FF3', '#5F27CD', '#FF9F43', '#00D2D3',
+    '#EE5A24', '#10AC84', '#0984E3', '#A29BFE', '#6C5CE7',
+    '#00B894', '#FD79A8', '#E84393', '#00CEC9', '#74B9FF',
+    '#FDCB6E', '#A29BFE', '#FD79A8', '#E17055', '#00B894',
+    '#55A3FF', '#6C5CE7', '#74B9FF', '#FF7675', '#FD79A8'
   ];
 
+  // Configuration object
   const difficultyConfig = {
-    usor: { pairs: 8, cols: 4 },
     mediu: { pairs: 12, cols: 6 },
+    usor: { pairs: 8, cols: 4 },
     greu: { pairs: 20, cols: 8 }
   };
 
-  const loadBestScores = async () => {
+  // Load best scores function
+  const loadBestScores = () => {
     try {
       if (currentUser) {
-        const docRef = doc(db, 'memoryGameScores', currentUser.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setBestScores(docSnap.data().scores || { usor: null, mediu: null, greu: null });
+        const userScores = localStorage.getItem(`memoryGameBestScores_${currentUser.uid}`);
+        if (userScores) {
+          setBestScores(JSON.parse(userScores));
         }
       } else {
         const localScores = localStorage.getItem('memoryGameBestScores');
@@ -54,17 +55,14 @@ const ColorMemoryGame = () => {
     }
   };
 
-  const saveBestScore = async (difficulty, score) => {
+  // Save score function
+  const saveBestScore = (difficulty, score) => {
     const newBestScores = { ...bestScores, [difficulty]: score };
     setBestScores(newBestScores);
 
     try {
       if (currentUser) {
-        await setDoc(doc(db, 'memoryGameScores', currentUser.uid), {
-          scores: newBestScores,
-          userId: currentUser.uid,
-          lastUpdated: new Date()
-        });
+        localStorage.setItem(`memoryGameBestScores_${currentUser.uid}`, JSON.stringify(newBestScores));
       } else {
         localStorage.setItem('memoryGameBestScores', JSON.stringify(newBestScores));
       }
@@ -73,6 +71,7 @@ const ColorMemoryGame = () => {
     }
   };
 
+  // Generate cards function
   const generateCards = () => {
     const config = difficultyConfig[difficulty];
     const selectedColors = availableColors.slice(0, config.pairs);
@@ -90,14 +89,16 @@ const ColorMemoryGame = () => {
     setGameWon(false);
   };
 
-  useEffect(() => {
-    generateCards();
-  }, [difficulty]);
-
+  // Effects with mixed order
   useEffect(() => {
     loadBestScores();
   }, [currentUser]);
 
+  useEffect(() => {
+    generateCards();
+  }, [difficulty]);
+
+  // Card click handler
   const handleCardClick = (cardId) => {
     if (!gameStarted) {
       setGameStarted(true);
@@ -162,9 +163,112 @@ const ColorMemoryGame = () => {
   };
 
   const getDifficultyLabel = (diff) => {
-    const labels = { usor: 'Ușor', mediu: 'Mediu', greu: 'Greu' };
+    const labels = { greu: 'Greu', usor: 'Ușor', mediu: 'Mediu' };
     return labels[diff];
   };
+
+  // Help modal component
+  const HelpModal = () => (
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-900/90 backdrop-blur-lg border border-cyan-400/50 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-gray-900/95 backdrop-blur-lg p-6 flex items-center justify-between rounded-t-2xl border-b border-cyan-400/30">
+          <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            Cum să joci Color Memory Game
+          </h2>
+          <button 
+            onClick={() => setShowHelp(false)}
+            className="text-cyan-400 hover:text-pink-400 text-3xl font-bold leading-none transition-colors duration-300 w-8 h-8 flex items-center justify-center"
+            title="Închide"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="p-6 space-y-6">
+          <div className="bg-gradient-to-br from-cyan-900/20 via-purple-900/20 to-pink-900/20 p-1 rounded-xl border border-cyan-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+                🎯 Obiectivul Jocului
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p><label className="text-pink-400 font-bold">Scopul:</label> Găsește toate perechile de culori identice</p>
+                <p><label className="text-pink-400 font-bold">Metoda:</label> Întoarce două cărți pe rând pentru a vedea culorile</p>
+                <p><label className="text-pink-400 font-bold">Câștig:</label> Jocul se termină când toate perechile sunt găsite</p>
+                <p><label className="text-pink-400 font-bold">Scor:</label> Cu cât folosești mai puține mișcări, cu atât e mai bine!</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-green-900/20 via-blue-900/20 to-purple-900/20 p-1 rounded-xl border border-blue-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-blue-400 mb-4 flex items-center gap-2">
+                🎮 Cum să Joci
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p><label className="text-cyan-400 font-bold">Pasul 1:</label> Click pe o carte pentru a o întoarce și vedea culoarea</p>
+                <p><label className="text-cyan-400 font-bold">Pasul 2:</label> Click pe a doua carte pentru a o întoarce</p>
+                <p><label className="text-cyan-400 font-bold">Potrivire:</label> Dacă culorile sunt identice, cărțile rămân întoarse</p>
+                <p><label className="text-cyan-400 font-bold">Nepotrivire:</label> Dacă culorile sunt diferite, cărțile se întorc la loc</p>
+                <p><label className="text-cyan-400 font-bold">Continuă:</label> Repetă până când toate perechile sunt găsite</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-red-900/20 p-1 rounded-xl border border-purple-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-purple-400 mb-4 flex items-center gap-2">
+                ⚙️ Niveluri de Dificultate
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p><label className="text-green-400 font-bold">Ușor:</label> 8 perechi (16 cărți) - Perfect pentru începători</p>
+                <p><label className="text-yellow-400 font-bold">Mediu:</label> 12 perechi (24 cărți) - Provocare echilibrată</p>
+                <p><label className="text-red-400 font-bold">Greu:</label> 20 perechi (40 cărți) - Pentru experți în memorie</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-yellow-900/20 via-orange-900/20 to-red-900/20 p-1 rounded-xl border border-yellow-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                📊 Sistemul de Scoruri
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p><label className="text-orange-400 font-bold">Mișcări:</label> Fiecare pereche de cărți întoarse = 1 mișcare</p>
+                <p><label className="text-orange-400 font-bold">Cel mai bun scor:</label> Numărul minim de mișcări pentru completare</p>
+                <p><label className="text-orange-400 font-bold">Record personal:</label> Se salvează automat pentru fiecare dificultate</p>
+                <p><label className="text-orange-400 font-bold">Progres:</label> Urmărește câte perechi ai găsit din total</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-pink-900/20 via-purple-900/20 to-cyan-900/20 p-1 rounded-xl border border-pink-400/30">
+            <div className="bg-gray-900/60 backdrop-blur-lg p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-pink-400 mb-4 flex items-center gap-2">
+                💡 Strategii și Sfaturi
+              </h3>
+              <div className="space-y-3 text-gray-300">
+                <p>• Încearcă să îți amintești pozițiile culorilor văzute anterior</p>
+                <p>• Începe cu colțurile și marginile pentru orientare mai bună</p>
+                <p>• Dezvoltă un sistem de memorare (ex: mental grid)</p>
+                <p>• Concentrează-te și evită distragerea atenției</p>
+                <p>• Practică zilnic pentru îmbunătățirea memoriei</p>
+                <p>• Începe cu dificultatea Ușor și progresează treptat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="sticky bottom-0 bg-gray-900/95 backdrop-blur-lg p-6 text-center border-t border-cyan-400/30 rounded-b-2xl">
+          <button 
+            onClick={() => setShowHelp(false)}
+            className="bg-gradient-to-r from-cyan-600 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-cyan-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+          >
+            Am înțeles! 🚀
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 
   const config = difficultyConfig[difficulty];
 
@@ -188,11 +292,22 @@ const ColorMemoryGame = () => {
 
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Color Memory Game
-            </h1>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                Color Memory Game
+              </h1>
+              <button
+                onClick={() => setShowHelp(true)}
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-600/20 via-purple-600/20 to-pink-600/20 backdrop-blur-lg border-2 border-cyan-400/50 rounded-full flex items-center justify-center text-cyan-400 hover:text-white hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-600/40 hover:via-purple-600/40 hover:to-pink-600/40 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50 group"
+                title="Ajutor"
+              >
+                <span className="text-sm sm:text-lg font-bold group-hover:animate-pulse">?</span>
+              </button>
+            </div>
             <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50"></div>
           </div>
+
+          {showHelp && <HelpModal />}
 
           <div className="bg-gray-900/40 backdrop-blur-lg rounded-2xl border border-cyan-400/30 p-4 sm:p-6 mb-8">
             <h2 className="text-lg sm:text-xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text mb-4 text-center">
@@ -216,13 +331,13 @@ const ColorMemoryGame = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-            <div className="bg-blue-900/40 border border-blue-400/30 rounded-xl p-4 text-center backdrop-blur-lg">
-              <h3 className="text-blue-300 text-sm sm:text-base font-semibold mb-1">Mișcări</h3>
-              <p className="text-blue-400 text-xl sm:text-2xl font-bold">{moves}</p>
-            </div>
             <div className="bg-green-900/40 border border-green-400/30 rounded-xl p-4 text-center backdrop-blur-lg">
               <h3 className="text-green-300 text-sm sm:text-base font-semibold mb-1">Perechi Găsite</h3>
               <p className="text-green-400 text-xl sm:text-2xl font-bold">{matchedCards.length / 2}/{config.pairs}</p>
+            </div>
+            <div className="bg-blue-900/40 border border-blue-400/30 rounded-xl p-4 text-center backdrop-blur-lg">
+              <h3 className="text-blue-300 text-sm sm:text-base font-semibold mb-1">Mișcări</h3>
+              <p className="text-blue-400 text-xl sm:text-2xl font-bold">{moves}</p>
             </div>
             <div className="bg-purple-900/40 border border-purple-400/30 rounded-xl p-4 text-center backdrop-blur-lg">
               <h3 className="text-purple-300 text-sm sm:text-base font-semibold mb-1">Cel Mai Bun Scor</h3>

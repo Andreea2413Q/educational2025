@@ -277,7 +277,7 @@ const Contact = () => {
             <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg sm:rounded-xl p-4 sm:p-5 lg:p-6 border border-white border-opacity-20">
               <h3 className="text-white text-base sm:text-lg lg:text-xl font-bold mb-3 sm:mb-4">🧩 Despre Mine: 🎓</h3>
               <p className="text-blue-100 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
-                Studentă la UPT - CTI, pasionată de intersecția dintre tehnologie și psihologia culorilor. Explorez cum culorile influențează comportamentul uman și le aplic în designul digital.
+               Bună, mă numesc Țirban Andreea-Florina, sunt eleva la Colegiul Național ,,Samuil Vulcan” din Beiuș, județul Bihor.
               </p>
               <p className="text-blue-100 leading-relaxed text-sm sm:text-base">
                 Când nu programez vreun proiect, îmi place să creez diverse proiecte în Blender, să caut inspirație pe Unsplash și să citesc cărți de fizică. Combin astfel creativitatea cu cunoașterea științifică pentru a înțelege mai bine lumea din jurul nostru.

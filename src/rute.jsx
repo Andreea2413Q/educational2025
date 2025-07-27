@@ -18,7 +18,7 @@ import Contrast from "./Teorie/contrast";
 import Quiz from "./Quiz/quiz";
 
 import Cont from "./Cont/cont";
-import Note from "./Note/note";
+import Note from "./Note/components/notes/note-app"
 
 import Joc from "./Joc/joc";
 import Wolearn from "./Joc/wolearn";

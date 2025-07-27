@@ -54,7 +54,7 @@ const WorldMapWithAI = () => {
       }
       return response;
     } catch (error) {
-      return `❌ ${error.message}\n\n📝 Răspuns local: ${getFallbackResponse(message, selectedCountry)}`;
+      return `X ${error.message}\n\n📝 Răspuns local: ${getFallbackResponse(message, selectedCountry)} X`;
     }
   };
 
@@ -66,7 +66,7 @@ const WorldMapWithAI = () => {
   return (
     <div className="w-full min-h-screen bg-green-800 relative">
       <div className="flex flex-col lg:flex-row h-screen">
-        {/* Map Section */}
+    
         <div className="w-full lg:w-3/4 h-3/5 lg:h-full">
           <InteractiveMap
             selectedCountry={selectedCountry}
@@ -76,7 +76,7 @@ const WorldMapWithAI = () => {
           />
         </div>
 
-        {/* Chat Section */}
+   
         {isOpen && (
           <ChatSidebar
             selectedCountry={selectedCountry}
@@ -92,7 +92,7 @@ const WorldMapWithAI = () => {
         )}
       </div>
 
-      {/* Floating Chat Button */}
+ 
       {!isOpen && (
         <FloatingChatButton
           onClick={() => setIsOpen(true)}
@@ -100,7 +100,7 @@ const WorldMapWithAI = () => {
         />
       )}
 
-      {/* Country Details */}
+     
       <CountryDetails
         selectedCountry={selectedCountry}
         selectedCapital={selectedCapital}
