@@ -12,7 +12,7 @@ const SuggestedQuestions = ({ onQuestionSelect, show = true }) => {
 
   return (
     <div className="px-3 lg:px-4 py-2 border-t border-gray-200 bg-white">
-      <p className="text-xs text-gray-600 mb-2">Întrebări sugerite:</p>
+      <p className="text-xs text-gray-600 mb-2">Întrebări des întâlnite:</p>
       <div className="space-y-1">
         {suggestedQuestions.slice(0, 3).map((question, index) => (
           <button

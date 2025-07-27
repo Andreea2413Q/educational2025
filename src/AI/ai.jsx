@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 
 import { useCountryData } from './use-country-data';

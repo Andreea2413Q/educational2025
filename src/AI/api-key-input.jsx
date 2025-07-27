@@ -21,7 +21,7 @@ const ApiKeyInput = ({ apiKey, setApiKey, onTest }) => {
         </button>
       </div>
       <p className="text-xs text-orange-600 mt-1">
-        Obține gratuit de la: <span className="font-mono">console.groq.com</span>
+        Obține gratuit de la: <span className="font-mono text-black">console.groq.com</span>
       </p>
     </div>
   );

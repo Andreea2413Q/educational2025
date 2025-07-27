@@ -120,11 +120,11 @@ const ChatSidebar = ({
       {selectedCountry && (
         <div className="px-3 lg:px-4 py-2 bg-blue-50 border-t border-blue-200">
           <p className="text-xs text-blue-800">
-            🗺️ <span className="font-semibold">Țară selectată:</span> {selectedCountry}
+            🗺️ <span className="font-semibold text-black">Țară selectată:</span> {selectedCountry}
           </p>
           {selectedCapital && selectedCapital !== 'Necunoscută' && (
             <p className="text-xs text-blue-600">
-              🏛️ <span className="font-semibold">Capitala:</span> {selectedCapital}
+              🏛️ <span className="text-black font-semibold ">Capitala:</span> {selectedCapital}
             </p>
           )}
         </div>

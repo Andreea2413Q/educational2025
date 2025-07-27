@@ -54,7 +54,7 @@ const InteractiveMap = ({
         layer.setStyle(getCountryStyle(feature));
       },
       click: (e) => {
-        const countryName = feature.properties.NAME || feature.properties.ADMIN || 'Țară necunoscută';
+        const countryName = feature.properties.NAME || feature.properties.ADMIN || 'Țară necunoscută :/';
         onCountrySelect(countryName);
         onCountryDetailsSelect(countryName);
         
@@ -80,7 +80,7 @@ const InteractiveMap = ({
 
   if (loading) {
     return (
-      <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-40">
+      <div className="absolute inset-0 flex items-center justify-center bg-gray-200 z-40">
         <div className="text-lg">Se încarcă harta lumii...</div>
       </div>
     );
@@ -119,7 +119,7 @@ const InteractiveMap = ({
             <h3 className="font-bold text-lg mb-2">🌍 {popupInfo.name}</h3>
             {selectedCapital && selectedCapital !== 'Necunoscută' && (
               <p className="text-sm">
-                <span className="font-semibold">Capitala:</span> {selectedCapital}
+                <span className="font-semibold text-black">Capitala:</span> {selectedCapital}
               </p>
             )}
             <p className="text-xs text-gray-600 mt-2">Întreabă AI-ul despre culorile din această cultură! →</p>
