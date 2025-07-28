@@ -1,4 +1,4 @@
-#Instalare + Bibliogr
+#Instalare + Bibliografie
 Aplicația este acum disponibilă la link-ul: **[https://educational2025.netlify.app/](https://educational2025.netlify.app/)**
 
 ---
@@ -14,7 +14,7 @@ Aplicația este acum disponibilă la link-ul: **[https://educational2025.netlify
 ## Ghid de Instalare
 
 ### Pasul 1: Descărcare și Configurare
-- Descărcați cea mai recentă ramură a proiectului
+- Descărcați cea mai recentă versiune a proiectului
 - Dezarhivați-l
 - Deschideți folderul descărcat în Visual Studio Code
 
@@ -31,6 +31,7 @@ npm start
 - Creați un cont
 - Mergeți la Firebase Console
 - Creați un nou proiect
+- artivați autentificarea cu Google
 - În folderul src, în fișierul firebase.js actualizați următoarea porțiune de cod pentru a conecta Firebase în baza voastră de date
 
 ---
