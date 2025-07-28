@@ -87,7 +87,7 @@ const ChatSidebar = ({
   };
 
   return (
-    <div className="w-full lg:w-1/4 h-2/5 lg:h-full bg-white lg:border-l border-gray-300 flex flex-col">
+    <div className="w-full lg:w-1/4 h-full lg:h-full bg-white lg:border-l border-gray-300 flex flex-col">
       <ChatHeader 
         apiConnected={apiConnected}
         onToggleApiInput={() => setShowApiInput(!showApiInput)}

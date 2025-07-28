@@ -24,23 +24,23 @@ const PalettesList = ({
   formatColorText
 }) => {
   return (
-    <div className="w-full lg:w-1/2 flex flex-col items-center justify-start overflow-auto p-4 saved-palettes-container">
+    <div className="w-full flex flex-col items-center justify-start overflow-auto p-4 saved-palettes-container">
       <PaletteHeader
         currentUser={currentUser}
         loading={loading}
         onReload={onReloadPalettes}
         onShowHelp={onShowHelp}
       />
-
+       
       <ColorFormatSelector
         colorFormat={colorFormat}
         setColorFormat={setColorFormat}
       />
-
+       
       {loading && <LoadingSpinner />}
-
+       
       {palettes.length === 0 && !loading && <EmptyPalettesMessage />}
-
+       
       {palettes.map((palette, index) => (
         <PaletteItem
           key={index}
@@ -61,5 +61,4 @@ const PalettesList = ({
     </div>
   );
 };
-
 export default PalettesList;

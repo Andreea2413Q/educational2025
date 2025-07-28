@@ -21,7 +21,7 @@ const PaletteItem = ({
         >
           {palette.name}
         </span>
-        <div className='flex flex-wrap gap-2 sm:w-2/3 justify-start sm:justify-end'>
+        <div className='flex flex-wrap gap-2 w-full justify-start sm:justify-end'>
           <button 
             className="text-sm sm:text-base lg:text-lg xl:text-xl text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 px-3 py-1 rounded transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/50" 
             onClick={() => onDisplayPalette(palette)}

@@ -69,7 +69,7 @@ export const getProfileContent = (currentUser, isActive, Sunset, isMobile = fals
   
   if (currentUser) {
     return (
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <div className="relative">
           <img 
             src={isMobile ? Sunset : currentUser.photoURL} 

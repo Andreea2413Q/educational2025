@@ -54,6 +54,7 @@ export default function MobileNavigationItem({
   const colorClasses = colorVariants[color] || colorVariants.cyan;
 
   return (
+    
     <NavLink 
       to={to}
       className={({ isActive }) => 

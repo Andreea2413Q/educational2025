@@ -62,11 +62,11 @@ const ChatHeader = ({
                💬 Avantajele conectării la Groq
              </h3>
              <div className="space-y-3 text-gray-300">
-               <p><label className="text-green-400 font-bold">Răspunsuri inteligente:</label> AI adevărat în loc de răspunsuri statice</p>
-               <p><label className="text-green-400 font-bold">Viteză incredibilă:</label> Răspunsuri aproape instantanee</p>
-               <p><label className="text-green-400 font-bold">Conversații naturale:</label> Dialog fluid și contextual</p>
-               <p><label className="text-green-400 font-bold">Gratuit:</label> Nivel gratuit generos pentru începători</p>
-               <p><label className="text-green-400 font-bold">Securitate:</label> Cheia API rămâne doar în browserul tău</p>
+               <p><label className="text-green-400 font-bold">Răspunsuri inteligente:</label> AI adevărat în loc de răspunsuri statice.</p>
+               <p><label className="text-green-400 font-bold">Viteză incredibilă:</label> Răspunsuri aproape instantaneu.</p>
+               <p><label className="text-green-400 font-bold">Conversații naturale:</label> Dialog fluid și contextual.</p>
+               <p><label className="text-green-400 font-bold">Gratuit:</label> Nivel gratuit generos pentru începători.</p>
+               <p><label className="text-green-400 font-bold">Securitate:</label> Cheia API rămâne doar în browserul tău.</p>
              </div>
            </div>
          </div>
@@ -77,10 +77,9 @@ const ChatHeader = ({
                🔒 Securitate și Confidențialitate
              </h3>
              <div className="space-y-3 text-gray-300">
-               <p><label className="text-orange-400 font-bold">Stocare locală:</label> Cheia API se salvează doar în browserul tău</p>
-               <p><label className="text-orange-400 font-bold">Fără servere:</label> Comunicarea este directă între tine și Groq</p>
-               <p><label className="text-orange-400 font-bold">Control total:</label> Poți șterge cheia oricând din setări</p>
-               <p><label className="text-orange-400 font-bold">Open source:</label> Codul aplicației este transparent</p>
+               <p><label className="text-orange-400 font-bold">Stocare locală:</label> Cheia API se salvează doar în browserul tău.</p>
+               <p><label className="text-orange-400 font-bold">Fără servere:</label> Comunicarea este directă între tine și Groq.</p>
+               <p><label className="text-orange-400 font-bold">Open source:</label> Codul aplicației este transparent.</p>
              </div>
            </div>
          </div>
@@ -91,9 +90,9 @@ const ChatHeader = ({
                🆚 Mod Local vs Groq
              </h3>
              <div className="space-y-3 text-gray-300">
-               <p><label className="text-yellow-400 font-bold">Mod Local:</label> Răspunsuri predefinite, fără cost, funcționalitate limitată</p>
-               <p><label className="text-green-400 font-bold">Mod Groq:</label> AI adevărat, conversații inteligente, răspunsuri personalizate</p>
-               <p>Recomandăm să încerci mai întâi modul local pentru a înțelege aplicația, apoi să treci la Groq pentru experiența completă</p>
+               <p><label className="text-yellow-400 font-bold">Mod Local:</label> Răspunsuri predefinite, fără cost, funcționalitate limitată.</p>
+               <p><label className="text-green-400 font-bold">Mod Groq:</label> AI adevărat, conversații inteligente, răspunsuri personalizate.</p>
+               <p>Recomandăm să încerci mai întâi modul local pentru a înțelege aplicația, apoi să treci la Groq pentru experiența completă.</p>
              </div>
            </div>
          </div>

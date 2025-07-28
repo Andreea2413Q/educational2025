@@ -1,4 +1,3 @@
-
 const PaletteHeader = ({ 
   currentUser, 
   loading, 
@@ -6,28 +5,37 @@ const PaletteHeader = ({
   onShowHelp 
 }) => {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between w-full mb-4 gap-2">
-      <div className="w-full flex">
-        <p className="text-lg w-1/2 sm:text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent font-bold text-center sm:text-left">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full mb-4 gap-4">
+     
+      <div className="flex items-center gap-3 flex-1">
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent font-bold">
           Palete Salvate
-        </p>
+        </h1>
         <button 
           onClick={onShowHelp}
-          className="text-white mr-2 bg-gradient-to-r from-purple-600 to-red-600 border border-cyan-400 px-3 py-2 sm:px-4 sm:py-2 rounded-lg transition-all duration-300 hover:from-purple-700 hover:to-red-700 text-sm sm:text-base"
+          className="flex items-center justify-center w-8 h-8 text-white bg-gradient-to-r from-purple-600 to-red-600 border border-cyan-400 rounded-full transition-all duration-300 hover:from-purple-700 hover:to-red-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50"
           title="Cum se folosește?"
+          aria-label="Afișează ajutorul pentru utilizarea paletelor"
         >
-          ?
+          <span className="text-sm font-semibold">?</span>
         </button>
       </div>
 
-      <div className="flex items-center gap-2 mr-5">
+   
+      <div className="flex items-center gap-2">
         {currentUser && (
           <button 
             onClick={onReload}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm transition-colors"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
             disabled={loading}
+            aria-label={loading ? "Se reîncarcă paletele..." : "Reîncarcă paletele salvate"}
           >
-            {loading ? '⟳' : '↻'} Reîncarcă
+            <span className={`text-base ${loading ? 'animate-spin' : ''}`}>
+              {loading ? '⟳' : '↻'}
+            </span>
+            <span className="hidden sm:inline">
+              {loading ? 'Se reîncarcă...' : 'Reîncarcă'}
+            </span>
           </button>
         )}
       </div>

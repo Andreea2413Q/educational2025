@@ -7,7 +7,7 @@ export default function DesktopNavigation() {
   const { currentUser } = useAuth();
 
   return (
-    <nav className="hidden md:flex space-x-6 lg:space-x-8">
+    <nav className="hidden md:flex space-x-6 lg:space-x-8 ">
       {navigationItems.map((item) => (
         <NavigationItem
           key={item.to}
