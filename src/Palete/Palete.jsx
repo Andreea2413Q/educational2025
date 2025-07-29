@@ -221,10 +221,8 @@ const ColorPaletteCreator = () => {
   console.log('🎨 ColorPaletteCreator render - showHelp:', showHelp, 'handleShowHelp:', typeof handleShowHelp); 
 
   return (
-    <div className="min-h-screen md:flex bg-gradient-to-br block from-gray-900 via-purple-900 to-black relative overflow-hidden">
+    <div className="min-h-screen md:flex w-full bg-gradient-to-br block from-gray-900 via-purple-900 to-black relative overflow-hidden">
      
-
-
 
       <PaletteCreator
         currentUser={currentUser}

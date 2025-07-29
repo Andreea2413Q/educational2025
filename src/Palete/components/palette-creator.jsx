@@ -28,7 +28,7 @@ const PaletteCreator = ({
     <div className="w-full lg:w-1/2 flex flex-col items-center justify-start overflow-auto p-4">
       <UserNotification currentUser={currentUser} />
       
-      <div className={`w-full max-w-md ${isScreenBelowMd ? 'pb-8' : ''}`}>
+      <div className={`w-full {isScreenBelowMd ? 'pb-8' : ''}`}>
         <PaletteForm
           paletteName={paletteName}
           setPaletteName={setPaletteName}

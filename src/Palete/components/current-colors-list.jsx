@@ -9,7 +9,7 @@ const CurrentColorsList = ({
       {colors.map((color, index) => (
         <div 
           key={index} 
-          className="m-1 w-16 h-16 flex justify-center items-center relative cursor-pointer rounded-lg border-2 border-white/30 hover:border-red-400/60 transition-all duration-200" 
+          className="m-1 w-12 h-12 flex justify-center items-center relative cursor-pointer rounded-lg border-2 border-white/30 hover:border-red-400/60 transition-all duration-200" 
           style={{ backgroundColor: color }}
         >
           <button 

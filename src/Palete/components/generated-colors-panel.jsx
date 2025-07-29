@@ -7,8 +7,8 @@ const GeneratedColorsPanel = ({
   if (generatedColors.length === 0) return null;
 
   return (
-    <div className="w-4/5 mx-auto mt-4 h-full p-4 bg-gray-900/60 backdrop-blur-lg border border-pink-400/30 rounded-lg shadow-lg">
-      <h3 className="text-center text-lg font-bold mb-3 text-pink-300">
+    <div className="w-full  mx-auto mt-4 h-auto p-4 bg-gray-900/60 backdrop-blur-lg border border-pink-400/30 rounded-lg shadow-lg">
+      <h3 className="text-center text-sm font-bold mb-3 text-pink-300">
         Culori Generate (click pentru a adăuga în paletă)
       </h3>
       <div className="flex flex-wrap justify-center">
